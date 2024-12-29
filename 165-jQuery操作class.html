@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        .active {
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">active</div>
+    <ul class="list1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul class="list2">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        $("#box").addClass("active")
+        // $("ul li").addClass("active")
+        $("ul.list1").addClass("active")//隐式迭代（不用遍历）
+
+        //应用：选项卡
+        //方法1:先移除再添加
+        // $("ul.list2 li").removeClass("active").eq(3).addClass("active")
+        //方法2：先添加再移除
+        $("ul.list2 li").eq(3).addClass("active").siblings().removeClass("active")
+
+        //判断某个元素有没有class
+        console.log($("ul.list2 li:eq(3)").hasClass("active"))
+        console.log($("ul.list1 li:eq(3)").hasClass("active"))
+
+        //切换元素类名，有就移除没有就添加
+        $("ul.list2 li:eq(1)").toggleClass("active")
+    </script>
+</body>
+
+</html>

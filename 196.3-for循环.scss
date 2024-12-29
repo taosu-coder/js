@@ -1,0 +1,19 @@
+// from 1 to 5 是1-5不包含5
+// from 1 through 5 是1-5包含5
+
+//#{}跟js的字符串模板${}一样，里面内容当成变量
+// @for $item from 1 to 5 {
+//     li:nth-chlid(#{$item}) {
+//         position: absolute;
+//         left: ($item - 1)*100px;
+//         top: ($item - 1)*100px;
+//     }
+// }
+
+@for $item from 1 through 5 {
+    li:nth-chlid(#{$item}) {
+        position: absolute;
+        left: ($item - 1)*100px;
+        top: ($item - 1)*100px;
+    }
+}

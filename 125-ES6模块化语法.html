@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        //1、私密不漏：在js文件中只export想被被共享的代码
+        //2、重名不怕：test重名了用as改名
+        import { C } from './module/C.js'
+        import { A1, A2, test as atest } from './module/A.js'
+        import { B1, B2, test as btest } from './module/B.js'
+        A1()
+        B1()
+        atest()
+        btest()
+        //3、依赖不乱：在C.js中导入了A.js,B.js，之后想在哪里用C的格式就在哪里用，不用因为借鉴了A，B而必须放在她们后面
+        //导入方法：
+        //1、<script src="./C.js" type="module">（这种是全部导入，有私密泄露的风险）
+        //2、import { C} from './module/C.js'
+        C()
+
+    </script>
+</body>
+
+</html>

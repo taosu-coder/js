@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //拼接concat
+        var arr = [1, 2, 3]
+        var arr1 = arr.concat(4)
+        console.log(arr1)
+        var arr2 = arr1.concat(arr, 5)
+        console.log(arr2)
+
+        //数组->字符串join
+        document.write(arr.join("-"))
+        console.log(arr)
+
+        //截取slice
+        var arr3 = ["aaa", "bbb", "ccc", "ddd", "eee"]
+        //两个值，（开始索引，结束索引）包前不包后
+        var arr4 = arr3.slice(0, 2)
+        console.log(arr4)
+        //一个值，从第几个开始到最后
+        var arr5 = arr3.slice(2)
+        console.log(arr5)
+        //不写，截取所有
+        var arr6 = arr3.slice()
+        console.log(arr6)
+        //负数从后数，-1即eee 包前不包后
+        var arr7 = arr3.slice(2, -1)
+        console.log(arr7)
+
+        //查找（indexOf从前往后找，lastIndexOf从后往前找
+        var index = arr3.indexOf("ccc")
+        console.log(index)
+        var index1 = arr.lastIndexOf("aa")
+        console.log(index1)
+
+    </script>
+
+</body>
+
+</html>

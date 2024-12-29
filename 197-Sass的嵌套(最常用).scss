@@ -1,0 +1,36 @@
+div {
+    width: 100px;
+    height: 100px;
+
+    p {
+        width: 50px;
+        height: 50px;
+
+        span {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+//若想选ul下的亲儿子li用>，没有>则选择的是所以子代元素
+ul {
+    >li {
+        background-color: red;
+    }
+}
+
+//伪类用&，可以理解为给自己本身加
+ul {
+    >li {
+        background-color: yellow;
+
+        &:hover {
+            background-color: green;
+        }
+
+        &.active {
+            background-color: blue;
+        }
+    }
+}

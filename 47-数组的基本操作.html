@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [1, 2, 3, 4, 5]
+        console.log(arr1.length)
+        arr1.length = 3
+        console.log(arr1)
+
+        var arr2 = ["hi", "hh", "taosu", "fanshu"]
+        //从0开始算，hi是第0个，taosu是第2个
+        console.log(arr2[2])
+        arr2[4] = "luobo"
+        console.log(arr2)
+
+        //遍历
+        var arr3 = [1, 2, 3, 4, 5, 6, 7, 8]
+        for (var i = 0; i < arr3.length; i++) {
+            console.log(arr3[i])
+        }
+        var arr4 = []
+        for (var i = 0; i < arr3.length; i++) {
+            arr4[i] = arr3[i]
+        }
+        console.log(arr4)
+    </script>
+</body>
+
+</html>

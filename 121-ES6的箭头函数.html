@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="mytext">
+    <script>
+        var test = function () {
+            console.log("111")
+        }
+        //箭头函数
+        var test1 = () => {
+            console.log("222")
+        }
+        test()
+        test1()
+
+        //1、（）可以省略，只有一个形参的时候可以省略
+        // var test2 = (a) => {
+        //     console.log(a)
+        // }
+        var test2 = a => {
+            console.log(a)
+        }
+        test2("hh")
+
+        //2、{}可以省略，只有一句代码或只有返回值时（return）
+        // var test3 = (b) => {
+        //     return b + 100
+        // }
+        var test3 = b => b + 100
+        console.log(test3(10))
+
+        var list = ["aaa", "bbb", "ccc"]
+        // var newlist = list.map(function (item) {
+        //     return `<li>${item}</li>`
+        // })
+        var newlist = list.map(item => `<li>${item}</li>`
+        )
+        console.log(newlist)
+
+        //特殊情况
+        // var test4=()=>{
+        //     return {name:"taosu"}
+        // }
+        //简化为：
+        var test4 = () => ({ name: "taosu" })
+        //返回为一个对象{name:"taosu"}时，要用（）括起来
+        console.log(test4())
+
+        //3、箭头函数没有arguments  解决方法：传形参
+        var test5 = function (a, b, c) {
+            console.log(a, b, c)
+        }
+        test5(1, 2, 3)
+
+        //不传形参可以借助arguments接收实参
+        //arguments返回的是一个伪数组，可以读但不能调用（map，filter）
+        var test6 = function () {
+            console.log(arguments[0], arguments[1], arguments[2])
+        }
+        test6(1, 2, 3)
+
+        //箭头函数传形参
+        var test7 = (a, b, c) => {
+            console.log(a, b, c)
+        }
+        test7(1, 2, 3)
+
+        //4、箭头函数本身没有this，箭头函数的this是父级作用域的
+        // mytext.oninput = function () {
+        //     setTimeout(function () {
+        //         console.log(this.value)
+        //     }, 1000)
+        // }
+        //input输入后结果是undefined，因为这里的this是setTimeout的即window的，所以拿不到input的值（页面搜this可以看到是window的）
+        //解决方法：用临时变量that存储this，再使用that，此时this指向的是input
+        // mytext.oninput = function () {
+        //     var that = this
+        //     setTimeout(function () {
+        //         console.log(that.value)
+        //     }, 1000)
+        // }
+
+        //箭头函数的方法：箭头函数的this是父级作用域的,即setTimeout的this是指向input的
+        mytext.oninput = function () {
+            setTimeout(() => {
+                console.log(this.value)
+            }, 1000)
+        }
+
+        //函数的默认参数(普通函数和箭头函数用法一样)
+        function test8(a, b) {
+            return a + b
+        }
+        console.log(test8(10, 20))
+        //若忘记传实参console.log(test8())，代码会崩，所以可以给形参一个默认值，如果忘记传实参，就用默认参数
+        // function test9(a = 1, b = 2) {
+        //     return a + b
+        // }
+        var test9 = (a = 1, b = 2) => {
+            return a + b
+        }
+        console.log(test9(20, 20))
+        console.log(test9())
+    </script>
+</body>
+
+</html>

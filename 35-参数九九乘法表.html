@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function test1(target) {
+            //给提示警告
+            if (target === undefined) {
+                //法一：不输入就弹窗
+                // alert("请输入参数")
+                //法二：不输入就在console里报错
+
+                //温和方法，给一个默认值，忘传参就默认
+                target = 9
+            }
+            for (var m = 1; m <= target; m++) {
+                for (var i = 1; i <= m; i++) {
+                    document.write("<span>" + i + "*" + m + "=" + m * i + "</span>")
+                }
+                document.write("<br>")
+            }
+        }
+        test1(8)
+        test1(5)
+        test1()
+    </script>
+</body>
+
+</html>

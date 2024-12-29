@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //反引号``可以换行，""和''不可以,但加\可以
+        // var myhtml = "<li>111</li>\
+        // <li>222</li>\
+        // <li>333</li>"
+        // document.write(myhtml)
+
+        var myhtml = `<li>111</li>
+        <li>222</li>
+        <li>333</li>`
+        document.write(myhtml)
+
+        //``里面可以写变量，${}里面内容是变量，外面是字符串
+        var myname = "taosu"
+        var str = `my name is ${myname} ${20 + 30} ${20 > 30 ? 'aaa' : 'bbb'}`
+        document.write(str)
+
+        //案例
+        var arr4 = ["hh", "taosu", "zhuozhuo"]
+        var arr5 = arr4.map(function (item) {
+            //    return "<li>" + item + "</li>"
+            return `<li>${item}</li>`
+        })
+        document.write(arr5.join(""))
+    </script>
+</body>
+
+</html>

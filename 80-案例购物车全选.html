@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" id="all">全选/全不选
+    <hr>
+    <ul class="shop">
+        <li>
+            <input type="checkbox">商品1
+        </li>
+        <li>
+            <input type="checkbox">商品2
+        </li>
+        <li>
+            <input type="checkbox">商品3
+        </li>
+        <li>
+            <input type="checkbox">商品4
+        </li>
+    </ul>
+
+    <script>
+        var oAll = document.querySelector("#all")
+        var oitems = document.querySelectorAll(".shop input")
+
+        //勾选全选/全不选，选择/取消选择全部商品
+        oAll.onclick = function () {
+            for (var i = 0; i < oitems.length; i++) {
+                oitems[i].checked = oAll.checked
+            }
+        }
+
+        //勾选全部商品时，全选自动勾选。减少勾选商品时，全选自动取消勾选
+        for (var i = 0; i < oitems.length; i++) {
+            oitems[i].onclick = handle
+        }
+        function handle() {
+            var count = 0
+            for (var i = 0; i < oitems.length; i++) {
+                if (oitems[i].checked) count++
+            }
+
+            if (count === oitems.length) {
+                oAll.checked = true
+            } else {
+                oAll.checked = false
+            }
+        }
+    </script>
+</body>
+
+</html>

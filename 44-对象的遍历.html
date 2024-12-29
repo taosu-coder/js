@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {}
+        obj1.name = "taosu"
+        obj1.age = 100
+        obj1.location = "china"
+        obj1.city = "珠海"
+
+        // document.write("name " + obj1.name)
+        // document.write("<br>")
+        // document.write("age " + obj1.age)
+        // document.write("<br>")
+        // document.write("city " + obj1.city)
+
+        //遍历
+        for (var i in obj1) {
+            document.write(i + ":" + obj1[i])
+            document.write("<br>")
+        }
+
+    </script>
+</body>
+
+</html>

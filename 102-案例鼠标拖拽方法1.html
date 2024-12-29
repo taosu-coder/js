@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        box.onmousedown = function () {
+            console.log("down")
+            document.onmousemove = function (evt) {
+                console.log("move")
+                var x = evt.clientX - box.offsetWidth / 2
+                var y = evt.clientY - box.offsetHeight / 2
+
+                //设置左边上边界限
+                if (x <= 0) x = 0
+                if (y <= 0) y = 0
+
+                //设置右边下边界限
+                if (document.documentElement.clientWidth - box.offsetWidth <= x) x = document.documentElement.clientWidth - box.offsetWidth
+
+                if (document.documentElement.clientHeight - box.offsetHeight <= y) y = document.documentElement.clientHeight - box.offsetHeight.offsetWidth
+
+                box.style.left = x + "PX"
+                box.style.top = y + "PX"
+            }
+        }
+
+        box.onmouseup = function () {
+            console.log("up")
+            document.onmousemove = null
+        }
+    </script>
+</body>
+
+</html>

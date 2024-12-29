@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+
+        #child {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">单击</button>
+    <button id="btn2">双击</button>
+    <button id="btn3">右键单击</button>
+    <button id="btn4">click</button>
+    <div id="box">
+        <div id="child"></div>
+    </div>
+
+    <script>
+        //单击事件onclick
+        btn.onclick = function () {
+            console.log("单击事件")
+        }
+
+        //双击事件ondblclick
+        btn2.ondblclick = function () {
+            console.log("双击事件")
+        }
+
+        //右键单击事件oncontextmenu
+        btn3.oncontextmenu = function () {
+            console.log("右键单击")
+        }
+
+        //鼠标左键按下onmousedown 移动onmousemove 抬起onmouseup
+        btn4.onmousedown = function () {
+            console.log("鼠标按下")
+        }
+        btn4.onmousemove = function () {
+            console.log("鼠标移动")
+        }
+        btn4.onmouseup = function () {
+            console.log("鼠标抬起")
+        }
+
+        //鼠标移入 移出事件一（不仅在自身触发，孩子上也触发）
+        box.onmouseover = function () {
+            console.log("鼠标移入")
+        }
+        box.onmouseout = function () {
+            console.log("鼠标移出")
+        }
+        //鼠标移入 移出事件二（仅在自身触发）
+        box.onmouseenter = function () {
+            console.log("鼠标移入")
+        }
+        box.onmouseleave = function () {
+            console.log("鼠标移出")
+        }
+    </script>
+</body>
+
+</html>

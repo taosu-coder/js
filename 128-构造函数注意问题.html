@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //构造函数注意问题
+        //1、首字母大写CreateObj
+        function CreateObj(name) {
+            this.name = name
+        }
+        var obj1 = new CreateObj("taosu")
+        console.log(obj1)
+
+        //2、构造函数的this，因为与new连用，所以this指向当前的实例对象
+        //new的过程是实例化过程，实例化对象已经生成
+
+        //3、构造函数会自动返回对象，所以不用return
+
+    </script>
+</body>
+
+</html>

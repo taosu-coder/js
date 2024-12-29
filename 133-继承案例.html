@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">
+        <h1></h1>
+        <ul></ul>
+    </div>
+    <div class="box2">
+        <h1></h1>
+        <img src="" style="width:100px;">
+        <ul></ul>
+    </div>
+    <script>
+        var data1 = {
+            title: "体育",
+            list: ["体育-1", "体育-2", "体育-3"]
+        }
+        var data2 = {
+            title: "综艺",
+            list: ["综艺-1", "综艺-2", "综艺-3"],
+            url: "https://pic.maizuo.com/usr/movie/c151962e41cb282f09b7855261841da7.jpg?x-oss-process=image/quality,Q_70"
+        }
+        function CreateList(select, data = {}) {
+            this.ele = document.querySelector(select)
+            this.title = data.title
+            this.list = data.list
+
+            CreateList.prototype.render = function () {
+                var h1 = this.ele.querySelector("h1")
+                var ul = this.ele.querySelector("ul")
+
+
+                h1.innerHTML = this.title
+                ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+            }
+        }
+        // 不可见数据
+        var obj1 = new CreateList(".box1", data1)
+        obj1.render()
+
+        //继承
+        //构造函数
+        function CreateImgList(seclet, data) {
+            CreateList.call(this, seclet, data)
+            this.imgUrl = data.url
+        }
+        //原型
+        CreateImgList.prototype = new CreateList()
+        //增强（修改名字）
+        // CreateImgList.prototype.render1 = function () {
+        //     this.render()
+        //增强（不修改名字）
+        CreateImgList.prototype.render = function () {
+            CreateList.prototype.render.call(this)
+            var img = this.ele.querySelector("img")
+            img.src = this.imgUrl
+        }
+
+        var obj2 = new CreateImgList(".box2", data2)
+        obj2.render()
+
+        // 变量对象和活动对象  函数调用栈 
+    </script>
+</body>
+
+</html>

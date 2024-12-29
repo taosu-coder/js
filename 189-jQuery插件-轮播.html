@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- https://owlcarousel2.github.io/OwlCarousel2/docs/started-installation.html -->
+
+    <link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="dist/assets/owl.theme.default.css">
+    <script src="lib/jquery.js"></script>
+    <script src="dist/owl.carousel.min.js"></script>
+</head>
+
+<body>
+    <!-- <div class="owl-carousel"> -->
+    <!-- owl-theme特殊class，底部导航指示器 在代码里的background可以修改颜色，或者上面的link里的default默认改为green等颜色-->
+    <div class="owl-carousel owl-theme">
+        <!-- <div> taosu111 </div>
+        <div> taosu222 </div>
+        <div> taosu333 </div>
+        <div> taosu444 </div>
+        <div> taosu555 </div>
+        <div> taosu666 </div> -->
+
+        <!-- 个性化需求 -->
+        <div>
+            <img src="img/175.1.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/175.2.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/175.3.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/175.4.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        //初始化
+        // $(".owl-carousel").owlCarousel()
+
+        //传参数：API里的Options
+        // $(".owl-carousel").owlCarousel({
+        //     items: 1,
+        //     //循环，最后一页下一页自动为第一页
+        //     loop: true,
+        //     //自动轮播
+        //     autoplay: true
+        // })
+
+        //绑事件：API里的Events
+        var myowl = $(".owl-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            autoplay: true
+        })
+        myowl.on('changed.owl.carousel', function (event) {
+            console.log(event.page.index)
+        })
+    </script>
+</body>
+
+</html>

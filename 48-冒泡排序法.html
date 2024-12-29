@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [3, 6, 7, 9, 2, 5, 1, 4]
+        // for (var j = 0; j < arr.length; j++) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] > arr[i + 1]) {
+        //             var temp = arr[i]
+        //             arr[i] = arr[i + 1]
+        //             arr[i + 1] = temp
+        //         }
+        //     }
+        // }
+        // console.log(arr)
+
+        //优化一下-1,-j
+        var arr = [3, 6, 7, 9, 2, 5, 1, 4]
+
+        for (var j = 0; j < arr.length - 1; j++) {
+            for (var i = 0; i < arr.length - 1 - j; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    var temp = arr[i]
+                    arr[i] = arr[i + 1]
+                    arr[i + 1] = temp
+                }
+            }
+        }
+        console.log(arr)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1">关闭定时器-延时</button>
+    <button id="btn2">关闭定时器-间隔</button>
+    <script>
+        var time1 = setTimeout(function () {
+            console.log("taosu")
+        }, 1000);
+
+        var time2 = setInterval(function () {
+            console.log(Date())
+        }, 1000);
+
+        btn1.onclick = (function () {
+            console.log("btn1.click")
+            cleartimeout(time1)
+        })
+
+        btn2.onclick = (function () {
+            console.log("btn2.click")
+            clearInterval(time2)
+        })
+
+    </script>
+</body>
+
+</html>

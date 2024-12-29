@@ -1,0 +1,29 @@
+li:nth-chlid(1) {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+li:nth-chlid(2) {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
+
+li:nth-chlid(3) {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+
+li:nth-chlid(4) {
+  position: absolute;
+  left: 300px;
+  top: 300px;
+}
+
+li:nth-chlid(5) {
+  position: absolute;
+  left: 400px;
+  top: 400px;
+}

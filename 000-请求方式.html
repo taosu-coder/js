@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myget">get</button>
+    <button id="mypost">post</button>
+    <button id="myput">put</button>
+    <input id="mydeleteInput" type="text">
+    <button id="mydelete">delete</button>
+    <button id="mypatch">patch</button>
+
+    <ul id="dataList">
+
+    </ul>
+
+    <script>
+        // 变量声明提升
+        // 暂存性死区
+        let data = []
+        myget.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("GET", "http://localhost:3000/users")
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+
+                    data = JSON.parse(xhr.responseText)
+                    console.log(data)
+                    let liList = ''
+                    for (let item of data) {
+                        liList += `<li >userName:${item.username}</br>password:${item.password}<button onclick=deleteFunction("${item.id}")>删除</button></li>`
+                    }
+                    dataList.innerHTML = liList
+                }
+            }
+            xhr.send()
+        }
+        myget.onclick()
+
+        mypost.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("POST", "http://localhost:3000/users")
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+            // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            // xhr.send(`username=hh&password=654321`)
+
+            xhr.setRequestHeader("content-type", "application/json")
+            xhr.send(JSON.stringify({
+                username: `taosusu${data.length}`,
+                password: "654321"
+            }))
+            // 零宽字符 
+        }
+
+        function deleteFunction(id) {
+            id = mydeleteInput.value || id
+            var xhr = new XMLHttpRequest()
+            xhr.open("DELETE", `http://localhost:3000/users/${id}`)
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+            // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            // xhr.send(`username=hh&password=654321`)
+
+            xhr.setRequestHeader("content-type", "application/json")
+            xhr.send()
+            // 零宽字符 
+
+
+            //调用get方法
+            myget.onclick();
+        }
+
+        mydelete.onclick = deleteFunction
+
+    </script>
+</body>
+
+</html>

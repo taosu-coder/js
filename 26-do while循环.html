@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //案例一：1~100的和
+        var n = 1
+        var sum = 0
+        do {
+            sum += n
+            n++
+        } while (n <= 100)
+        console.log(sum)
+
+        //案例二：弹出框，不输入不能关闭
+        do {
+            var res = prompt("请输入你的名字")
+            //再加入代码可以提取输入内容
+            if (res) {
+                document.write(res)
+            }
+        } while (!res)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

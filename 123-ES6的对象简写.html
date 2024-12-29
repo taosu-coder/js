@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="mytext">
+    <input type="password" id="mypassword">
+    <button id="mybtn">login</button>
+    <script>
+        //对象中的简写
+        mybtn.onclick = function () {
+            var username = mytext.value
+            var password = mypassword.value
+            console.log(username, password)
+
+            var obj = {
+                // username: username,
+                // password: password
+                //当key值和变量名字一样时可以省略冒号后面的，上面省略为：
+                username,
+                password
+            }
+            console.log("传给后端的格式", obj)
+        }
+
+        //在函数中的简写：省略：冒号后面的
+        var obj1 = {
+            a: 1,
+            // getName: function () {
+            //     console.log(this.a)
+            // }
+            //省略为：
+            getName() {
+                console.log(this.a, this)
+            }
+        }
+        obj1.getName()
+    </script>
+</body>
+
+</html>

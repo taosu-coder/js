@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myshow">显示</button>
+    <button id="myhide">隐藏</button>
+    <button id="mytoggle">切换1</button>
+    <button id="myslideup">上卷</button>
+    <button id="myslidedown">下滑</button>
+    <button id="myslidetoggle">切换2</button>
+    <button id="myfadeout">渐隐</button>
+    <button id="myfadein">渐出</button>
+    <button id="myfadetoggle">切换3</button>
+    <button id="myfadeto">透明度</button>
+    <button id="myanimate">animate</button>
+    <button id="mystop">stop</button>
+    <button id="myfinish">finish</button>
+    <div id="box"></div>
+    <script>
+        //基本动画
+        //1、显示、隐藏、切换（本身是显示就转为隐藏，本身是隐藏就转为显示）
+        $("#myshow").click(function () {
+            $("#box").show(1000, "linear", function () {
+                console.log("显示")
+            })
+        })
+
+        $("#myhide").click(function () {
+            $("#box").hide(1000, "linear", function () {
+                console.log("隐藏")
+            })
+        })
+
+        $("#mytoggle").click(function () {
+            $("#box").toggle(1000, "linear", function () {
+                console.log("切换")
+            })
+        })
+
+        //2、卷轴、切换
+        $("#myslideup").click(function () {
+            $("#box").slideUp(1000, "linear", function () {
+                console.log("上卷")
+            })
+        })
+
+        $("#myslidedown").click(function () {
+            $("#box").slideDown(1000, "linear", function () {
+                console.log("下滑")
+            })
+        })
+
+        $("#myslidetoggle").click(function () {
+            $("#box").slideToggle(1000, "linear", function () {
+                console.log("切换")
+            })
+        })
+
+        //3、渐隐、渐出、切换、指定到某个透明度
+        $("#myfadeout").click(function () {
+            $("#box").fadeOut(1000, "linear", function () {
+                console.log("渐隐")
+            })
+        })
+        $("#myfadein").click(function () {
+            $("#box").fadeIn(1000, "linear", function () {
+                console.log("渐出")
+            })
+        })
+        $("#myfadetoggle").click(function () {
+            $("#box").fadeToggle(1000, "linear", function () {
+                console.log("切换")
+            })
+        })
+        $("#myfadeto").click(function () {
+            $("#box").fadeTo(1000, 0.2, "linear", function () {
+                console.log("指定到0.2透明度")
+            })
+        })
+
+        //综合动画
+        //1不支持过度的样式（display：block、none这种）
+        //2不支持颜色变换
+        //3不支持transform变形（平移。。）
+
+        //1、自定义动画
+        $("#myanimate").click(function () {
+            $("#box").animate({
+                //有位置变化，需要有定位position: absolute
+                left: "200px",
+                top: 100,
+                //borderRadius或者"border-radius"
+                borderRadius: "100px"
+            }, function () {
+                console.log("变化完成")
+            })
+        })
+
+        //2、立刻停止动画，运动到哪就停在哪，在其他动画前调用
+        // $("#mystop").click(function () {
+        //     $("#box").stop()
+        // })
+        //在其他动画前调用
+        $("#mystop").click(function () {
+            $("#box").stop().animate({ top: 300 })
+        })
+
+        //3、立刻结束动画，立即运行到结束位置，在他他动画前调用
+        $("#myfinish").click(function () {
+            $("#box").finish()
+        })
+        //在其他动画前调用
+        $("#myfinish").click(function () {
+            $("#box").finish().animate({ top: 400 })
+        })
+    </script>
+</body>
+
+</html>

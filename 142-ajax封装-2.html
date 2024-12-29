@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myget">get</button>
+    <button id="mypost">post</button>
+    <button id="myput">put</button>
+    <button id="mydelete">delete</button>
+    <button id="mypatch">patch</button>
+
+    <script src="142.1.js"></script>
+    <script>
+        myget.onclick = function () {
+            // var xhr = new XMLHttpRequest()
+            // xhr.open("GET", "http://localhost:3000/users")
+            // xhr.onload = function () {
+            //     if (xhr.status === 200) {
+            //         console.log(JSON.parse(xhr.responseText))
+            //     }
+            // }
+            // xhr.send()
+            ajax({
+                url: "http://localhost:3000/users",
+                data: {
+                    username: "taosu",
+                    password: "123456"
+                },
+                success: function (res) {
+                    console.log("success", res)
+                },
+                error: function (err) {
+                    console.log("error", err)
+                }
+            })
+        }
+
+        mypost.onclick = function () {
+            ajax({
+                url: "http://localhost:3000/users",
+                data: {
+                    username: "taosu2",
+                    password: "123456"
+                },
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                success: function (res) {
+                    console.log("success", res)
+                },
+                error: function (err) {
+                    console.log("error", err)
+                }
+            })
+        }
+
+
+        myput.onclick = function () {
+            ajax({
+                url: "http://localhost:3000/users/3",
+                data: {
+                    username: "taosu3",
+                    password: "456"
+                },
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json"
+                },
+                success: function (res) {
+                    console.log("success", res)
+                },
+                error: function (err) {
+                    console.log("error", err)
+                }
+            })
+        }
+
+        mypatch.onclick = function () {
+            ajax({
+                url: "http://localhost:3000/users/4",
+                data: {
+                    username: "taosu4",
+
+                },
+                method: "PATCH",
+                headers: {
+                    "content-type": "application/json"
+                },
+                success: function (res) {
+                    console.log("success", res)
+                },
+                error: function (err) {
+                    console.log("error", err)
+                }
+            })
+        }
+
+        mydelete.onclick = function () {
+            ajax({
+                url: "http://localhost:3000/users/6",
+                method: "DELETE",
+                headers: {
+                    "content-type": "application/json"
+                },
+                success: function (res) {
+                    console.log("success", res)
+                },
+                error: function (err) {
+                    console.log("error", err)
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

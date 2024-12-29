@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //代码运行完会被垃圾回收机制回收，释放内存
+        // function test(){
+        //     var name="taosu"
+        //     console.log(name)
+        // }
+        // test()
+
+        /*
+        获得一个不被销毁（不被垃圾回收机制回收）的空间：
+        函数有返回值，而且返回值必须是复杂类型（对象，函数等），要赋值给外面的变量
+        */
+
+        //在这个函数里，name执行完会被回收，obj是复杂类型被return，在执行空间里a，b被obj1引用了，所以obj这个空间不会被垃圾回收机制回收
+        function test() {
+            var name = "taosu"
+            console.log(name)
+            var obj = {
+                a: 1,
+                b: 2
+            }
+            return obj
+        }
+
+        var obj1 = test()
+        var obj2 = test()
+        //obj1不等于obj2，obj1===obj2=>false分别创建了一个空间（地址）
+
+        //销毁执行空间（赋值为空），释放空间
+        obj1 = null
+
+    </script>
+</body>
+
+</html>

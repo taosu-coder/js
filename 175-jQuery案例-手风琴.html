@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 640px;
+            height: 200px;
+            margin: 100px;
+            border: 5px solid skyblue;
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            width: 160px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <img src="img/175.1.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/175.2.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/175.3.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/175.4.jpg" alt="">
+        </li>
+    </ul>
+    <script>
+        $("ul li").mouseover(function () {
+            //不加stop划动一下就要完成全部
+            $(this).stop().animate({
+                width: 520,
+            })
+            $(this).siblings().stop().animate({
+                width: "40px"
+            })
+        })
+
+        //mouseout在控制台上显示鼠标离开li就会执行一次，所以会执行n次，因为mouseout会冒泡，有stop所以效果上看不出
+        //mouseleave只会触发本身的事件
+        $("ul").mouseleave(function () {
+            $("ul li").stop().animate({
+                width: 160
+            })
+        })
+    </script>
+</body>
+
+</html>

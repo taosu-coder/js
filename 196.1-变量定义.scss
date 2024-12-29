@@ -1,0 +1,20 @@
+$color: blue;
+$width: 100px;
+
+.box {
+    background-color: $color;
+    width: $width;
+}
+
+.footer {
+    border-top: 1px solid $color;
+
+}
+
+.box2 {
+    width: $width*2
+}
+
+.box3 {
+    height: $width/2
+}

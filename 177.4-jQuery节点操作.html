@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+    </div>
+    <div id="box1">分割线
+        <br>
+    </div>
+    <script>
+        $("#box").click(function () {
+            console.log("box click")
+        })
+
+        $("#box ul").click(function () {
+            console.log("ul click")
+        })
+        ///克隆节点
+        //克隆box放在box后面
+        $("#box").clone().insertAfter($("#box1"))
+
+        //克隆后可以按需修改
+        // $("#box").clone().prop("id", "box2").css("background", "red").insertAfter($("#box1"))
+
+        //clone()里面传参数，第一个为是否复制自身的事件，第二个为是否复制子元素的事件，只传一个true即父子事件都复制，不传默认值为两个false，不支持前false后true传法
+        $("#box").clone(true).css("background", "yellow").insertAfter($("#box1"))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <ul>
+        <li class="newitems">111</li>
+        <li class="newitems">222</li>
+        <li class="newitems">333</li>
+    </ul>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <input type="text" name="username">
+    <input type="password" name="password">
+
+    <script>
+        //非常规：html,head,body
+        console.log(document.documentElement)
+        console.log(document.head)
+        console.log(document.body)
+
+        //常规：id,class,tag
+        //通过id获取标签节点getElementById
+        var box = document.getElementById("box")
+        console.log(box)
+        box.innerHTML = "222"
+
+        //通过class获取标签节点getElementsByClassName
+        var items = document.getElementsByClassName("newitems")
+        console.log(items)
+        items[0]
+        // items[0].innerHTML = "new-111"
+        for (var i = 0; i < items.length; i++) {
+            items[i].innerHTML = "new-" + i
+        }
+
+        //通过标签名获取标签节点getElementsByTagName
+        var items1 = document.getElementsByTagName("li")
+        console.log(items1)
+
+        //通过name获取标签节点
+        var items2 = document.getElementsByName("username")
+        console.log(items2)
+        items2[0].value = "taosu"
+
+        //按照css选择器获取标签节点,id选择器->.box,class选择器->#box,子代选择器->ul li
+        //1，只能获取一个元素,querySelector
+        var items3 = document.querySelector("ul li")
+        console.log(items3)
+        var items4 = document.querySelector("#box")
+        console.log(items4)
+
+        //2，可以获取所有满足条件的元素
+        var items5 = document.querySelector(".newitems")
+        console.log(items5)
+    </script>
+</body>
+
+</html>

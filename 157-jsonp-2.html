@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 面试题：jsonp原理：动态创建script标签，src属性指向没有跨域限制，指向一个接口，接口返回的格式一定是****（）函数表达式 -->
+    <button id="mybtn">jsonp</button>
+    <button id="mybtn1">jsonp2</button>
+    <script>
+        function test(obj) {
+            console.log(obj)
+        }
+        // test({name:"taosu"})
+
+        //动态方式
+        mybtn.onclick = function () {
+            var oscript = document.createElement("script")
+            oscript.src = "157.1.txt" //未来换成真正地址
+            //插入body里的最后面
+            document.body.appendChild(oscript)
+        }
+    </script>
+    <script>
+        // function callbackFunction(obj) {
+        //     console.log(obj)
+        // }
+        //将test1改为callbackFunction或者将网址的callbackFunction改为test1
+        function test1(obj) {
+            console.log(obj)
+        }
+
+        mybtn1.onclick = function () {
+            var oscript1 = document.createElement("script")
+            // oscript.src = `https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction`
+            oscript1.src = `https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=test1`
+            document.body.appendChild(oscript1)
+            //点一下jsonp2就创建一个节点(element里创建script标签），代码已经执行完了，数据接收完了，节点太多删除掉使页面整洁
+            //onload:代码执行完才执行
+            oscript1.onload = function () {
+                oscript1.remove()
+            }
+
+        }
+        /*
+           注意：
+           1. 后端接口形式必须****（），需要后端配合
+           2. jsonp 缺点
+           (1) onload 删除sciprt标签
+           (2)只能get请求,不能post put delete
+           */
+    </script>
+
+
+
+
+    <!-- <script>
+        test({ name: "taosu" })
+    </script> -->
+
+    <!-- <script src="157.2.js"></script> -->
+
+    <!-- <script src="157.1.txt">
+        //txt格式也能用，以script引入的文件就会当成js文件来使用
+    </script> -->
+
+
+
+</body>
+
+</html>

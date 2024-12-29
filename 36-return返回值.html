@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(x, y, z) {
+            var result = x + y + z
+            console.log(result)
+            return result
+        }
+        var res = add(1, 2, 3)
+
+        //别的函数要用上上面函数的结果，所以要返回
+        function test(a) {
+            console.log("发给后端用", a)
+        }
+        test(res)
+    </script>
+</body>
+
+</html>

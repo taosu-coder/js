@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 100
+        function test1() {
+            var num1 = 200
+
+            function test2() {
+                var num2 = 300
+
+                console.log(num2)
+                console.log(num1)
+                console.log(num)
+                console.log(a)
+            }
+            test2()
+        }
+        test1()
+    </script>
+
+    <script>
+        var myname = "hh"
+        function test() {
+            console.log(nickname, myname)
+            var nickname = "taosu"
+            console.log("test", nickname)
+        }
+        test()
+    </script>
+</body>
+
+</html>

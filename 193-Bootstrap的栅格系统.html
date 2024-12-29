@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="Bootstraplib/bootstrap.css">
+    <script src="Bootstraplib/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 12栅格:col总数为12,四个div就每个3份 ,类似弹性盒的flex-->
+            <!-- <div class="col-3">111</div>
+            <div class="col-3">222</div>
+            <div class="col-3">333</div>
+            <div class="col-3">444</div> -->
+
+            <!-- -3不写则默认平分； -->
+            <!-- <div class="col">777</div>
+            <div class="col">888</div>
+            <div class="col">999</div> -->
+
+            <!-- 也可以只写部分，只有3个div的话，前两个都为3份，则第3个div自动为6份 -->
+            <!-- <div class="col-3">777</div>
+            <div class="col-3">888</div>
+            <div class="col">999</div> -->
+
+            <!-- 断点应用 -->
+            <!-- Bootstrap内置了6个默认断点, -->
+            <!-- 不加为默认值，
+             -sm(屏幕宽度>=576px时显示),
+             -md(屏幕宽度>=768px时显示),
+             -lg(屏幕宽度>=992px时显示),
+             -xl(屏幕宽度>=1200px时显示),
+             -xxl(屏幕宽度>=1400px时显示) -->
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <!-- 网页上card的样式 -->
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

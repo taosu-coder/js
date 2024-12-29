@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>hello</div>
+    <div id="box">
+        taosu
+        <p>11111</p>
+        <p>222</p>
+        <!--我是注释-->
+    </div>
+    <div>fanshu</div>
+
+    <script>
+        //所有子节点childNodes
+        //所有子元素节点children
+        console.log(box.childNodes)
+        console.log(box.children)
+
+        //第一个子节点
+        //第一个子元素节点
+        console.log(box.firstChild)
+        console.log(box.firstElementChild)
+
+        //最后一个子节点
+        //最后一个子元素节点
+        console.log(box.lastChild)
+        console.log(box.lastElementChild)
+
+        //上一个兄弟节点（哥哥节点）
+        //上一个兄弟元素节点
+        console.log(box.previousSibling)
+        console.log(box.previousElementSibling)
+
+        //下一个兄弟节点（弟弟节点）
+        //下一个兄弟元素节点
+        console.log(box.nextSibling)
+        console.log(box.nextElementSibling)
+
+        //某一个父节点
+        //某一个父元素节点
+        console.log(box.parentNode)
+        console.log(box.parentNode.parentNode)
+        console.log(box.parentNode.parentNode.parentNode)//document
+
+        console.log(box.parentElement)
+        console.log(box.parentElement.parentElement)
+        console.log(box.parentElement.parentElement.parentElement)//null
+    </script>
+</body>
+
+</html>

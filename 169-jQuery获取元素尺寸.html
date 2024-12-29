@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            border: 5px solid red;
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        //offsetwidth,offsetheight:内容+padding+border
+        //clientwidth，clientheight：内容+padding
+
+        //获取内容宽高
+        console.log($("div").width(), $("div").height())
+
+        //获取内容宽高+padding
+        console.log($("div").innerWidth(), $("div").innerHeight())
+
+        //获取内容宽高+padding+border
+        console.log($("div").outerWidth
+            (), $("div").outerHeight())
+
+        //获取内容宽高+padding+border+margin
+        console.log($("div").outerWidth
+            (true), $("div").outerHeight(true))
+    </script>
+</body>
+
+</html>

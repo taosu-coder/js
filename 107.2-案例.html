@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 100px;
+            height: 90px;
+            border: 1px solid black;
+            position: absolute;
+            display: none;
+        }
+
+        li:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- xiugaile -->
+    <ul id="list">
+        <li class="aaa">111</li>
+        <li class="bbb">222</li>
+        <li class="ccc">333</li>
+    </ul>
+    <script>
+        document.addEventListener("contextmenu", function (evt) {
+            evt.preventDefault()
+            list.style.display = "block"
+            var x = evt.clientX
+            var y = evt.clientY
+            //右边下边设置边界
+            if (x > document.documentElement.clientWidth - list.clientWidth) x = document.documentElement.clientWidth - list.clientWidth
+            if (y > document.documentElement.clientHeight - list.clientHeight) y = document.documentElement.clientHeight - list.clientHeight
+
+            list.style.left = x + "px"
+            list.style.top = y + "px"
+        })
+        document.addEventListener("click", () => {
+            list.style.display = "none"
+        })
+
+        //  target
+        //ie低版本兼容问题，加上evt.srcElement
+        list.onclick = function (evt) {
+            console.log(evt.target || evt.srcElement)
+            if (evt.target.className === "aaa") {
+                console.log("shiwo")
+            }
+
+        }
+    </script>
+</body>
+
+</html>

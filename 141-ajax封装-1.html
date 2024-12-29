@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="141.1.js"></script>
+    <script>
+        //get
+        // ajax({
+        //     // url: "http://localhost:3000/users1"
+        //     //报错error 错误状态码：404
+        //     url: "http://localhost:3000/users",
+        //      data:{},
+        //     success: function (res) {
+        //         console.log("success", res)
+        //     },
+        //     error: function (err) {
+        //         console.log("error", err)
+        //     }
+        // })
+
+        //post
+        ajax({
+            url: "http://localhost:3000/users",
+            method: "POST",
+            // data: "username=fanshu&password=123",
+            data: {
+                username: "hh111",
+                password: "456"
+            },
+            headers: {
+                // "content-type": "application/x-www-form-urlencoded"
+                "content-type": "application/json"
+            },
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        })
+    </script>
+</body>
+
+</html>

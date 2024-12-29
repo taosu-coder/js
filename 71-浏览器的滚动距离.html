@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            width: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100px;height:300px;"></div>
+    <button id="btn">回到顶部</button>
+    <script>
+        // //获取页面向上的滚动距离
+        // document.onscroll = function () {
+        //     console.log(document.documentElement.scrollTop || document.body.scrollTop
+        //     )
+        // }
+        // //获取页面向左的滚动距离
+        // document.onscroll = function () {
+        //     console.log(document.documentElement.scrollLeft || document.body.scrollLeft)
+        // }
+
+        document.onscroll = function () {
+            console.log(document.documentElement.scrollTop || document.body.scrollTop
+            )
+            if (document.documentElement.scrollTop || document.body.scrollTop > 50) {
+                console.log("显示返回到顶部")
+            } else {
+                console.log("显示隐藏回到顶部")
+            }
+        }
+
+        btn.onclick = function () {
+            // window.scrollTo(0, 0)
+            window.scrollTo({
+                left: 0,
+                top: 0
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //所有元字符都表示一个，多少个就加多少个符号（\d\d两个数字）
+
+        //1、\d  里面包含一个数字（0-9）
+        // var reg = /\d/
+        // console.log(reg.test("abc"))//false
+        // console.log(reg.test("1bc"))
+        // console.log(reg.test("sa11c"))
+
+        //2、\D  里面包含一个非数字
+        // var reg = /\D/
+        // console.log(reg.test("abc"))
+        // console.log(reg.test("1bc"))
+        // console.log(reg.test("sa11c"))
+
+        //3、\s  里面包含一个空白（空格、缩进Tab、换行\n）
+        // var reg = /\s/
+        // console.log(reg.test("ab c"))
+        // console.log(reg.test("      "))
+        // console.log(reg.test("sa1\n1c"))
+
+        //4、\S  里面包含一个非空白
+        // var reg = /\S/
+        // console.log(reg.test("ab c"))
+        // console.log(reg.test("      "))//false
+        // console.log(reg.test("sa1\n1c"))
+
+        //5、\w  里面包含一个字母、数字、下划线_
+        // var reg = /\w/
+        // console.log(reg.test("ads11"))
+        // console.log(reg.test("a_"))
+        // console.log(reg.test("#%^"))//false
+
+        //6、\W  里面包含一个不是字母、数字、下划线_
+        // var reg = /\W/
+        // console.log(reg.test("ads11"))//false
+        // console.log(reg.test("a_"))//false
+        // console.log(reg.test("#%^"))
+
+        //7、.  里面包含一个任意内容（换行除外）
+        // var reg = /./
+        // console.log(reg.test("ads11"))
+        // console.log(reg.test("\n"))//false
+        // console.log(reg.test("a\n"))
+
+        //8、\  转义符，将想要的字符转换为元字符
+        //比如想要1.2 2.3的格式，写成/\d.\d/,这里面的.会被当成上面的任意内容元字符，所以改为\.
+        var reg = /\d\.\d/
+        console.log(reg.test("1.2"))
+        console.log(reg.test("1a2"))//false
+        console.log(reg.test("a\n"))//false
+
+
+    </script>
+</body>
+
+</html>

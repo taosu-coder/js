@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            /* background-color: yellow; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- style可读可写,只能读写行内样式 -->
+    <div id="box" style="width:100px;color:red;background-color: yellow;">
+        taosu
+    </div>
+    <script>
+        console.log(box.style.width)
+        console.log(box.style.backgroundColor)
+        box.style.width = "200px"
+
+        // getComputedStyle可读不可写，外部内部行内样式都可读
+        console.log(getComputedStyle(box).height)
+    </script>
+</body>
+
+</html>

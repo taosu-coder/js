@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="37.3.js"></script>
+</head>
+
+<body>
+    <script>
+        //把这段可以放入外部文件，引入src37.3.js文件
+        // function isPrime(n) {
+        //     for (var i = 2; i <= n / 2; i++) {
+        //         if (n % i === 0) {
+        //             return false
+        //         }
+        //     }
+        //     return true
+        // }
+        var res = isPrime(13)
+        console.log(res)
+
+        //求200-300里有多少质数
+        for (var i = 100; i < 300; i++) {
+            if (isPrime(i)) {
+                console.log(i)
+            }
+        }
+    </script>
+</body>
+
+</html>

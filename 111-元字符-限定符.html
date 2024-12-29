@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1、*   0~n次
+        // var reg = /\d*/
+        // console.log(reg.test("sabc"))
+        // console.log(reg.test("1sabc"))
+
+        //2、+   1~n次
+        // var reg = /\d+/
+        // console.log(reg.test("sabc"))//false
+        // console.log(reg.test("1sabc"))
+
+        //3、？  0~1次
+        // var reg = /\d?/
+        // console.log(reg.test("sabc"))
+        // console.log(reg.test("1sabc"))
+        // console.log(reg.test("123sabc"))
+
+        //4、{n}  指定n次   {n，} 大于等于n次
+        // var reg = /\d{3}/
+        // console.log(reg.test("s32abc"))//false
+        // console.log(reg.test("123sabc"))
+        // console.log(reg.test("12345sabc"))
+
+        // var reg = /\d{3,}/
+        // console.log(reg.test("s32abc"))//false
+        // console.log(reg.test("123sabc"))
+        // console.log(reg.test("1233sabc"))
+
+        //5、{n，m}  大于等于n次，小于m次
+        // var reg = /\d{3,5}/
+        // console.log(reg.test("s32abc"))//false
+        // console.log(reg.test("123sabc"))
+        // console.log(reg.test("1233sabc"))
+        // //捕获
+        // console.log(reg.exec("12335sabc"))//12335
+
+        var reg = /abc{2}/
+        //限定符☞修饰一个，所以/abc{2}/是c出现次数2次
+        console.log(reg.test("abcc"))
+        console.log(reg.test("abcabc"))//false
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myget">get</button>
+    <button id="mypost">post</button>
+    <button id="myput">put</button>
+    <button id="mydelete">delete</button>
+    <button id="mypatch">patch</button>
+
+    <script>
+        myget.onclick = function () {
+            // ajax({
+            //     url: "http://localhost:3000/users",
+            //     data: {
+            //         username: "taosu",
+            //         password: "123456"
+            //     },
+            //     success: function (res) {
+            //         console.log("success", res)
+            //     },
+            //     error: function (err) {
+            //         console.log("error", err)
+            //     }
+            // })
+
+            // fetch("http://localhost:3000/users").then(res => {
+            //     return res.json()
+            // }).then(res => {
+            //     console.log(res)
+            // })
+
+            //上面简化为
+            // fetch("http://localhost:3000/users")
+            //.then(res.json()//res.json res.text
+            //.then(res => {
+            //     console.log(res)
+            // })
+
+            // fetch("http://localhost:3000/users")
+            //get传参:var ?
+            var username = "taosu"
+            fetch(`http://localhost:3000/users?username=${username}`)
+                .then(res => {
+                    console.log(res)
+                    if (res.ok) {
+                        return res.json()
+                    } else {
+                        //拒绝承诺
+                        return Promise.reject({
+                            status: res.status,
+                            statusText: res.statusText
+                        })
+                    }
+                })
+                .then(res => {
+                    console.log("success", res)
+                }).catch(err => {
+                    console.log("error", err)
+                })
+        }
+
+        mypost.onclick = function () {
+            // ajax({
+            //     url: "http://localhost:3000/users",
+            //     data: {
+            //         username: "taosu2",
+            //         password: "123456"
+            //     },
+            //     method: "POST",
+            //     headers: {
+            //         "content-type": "application/json"
+            //     },
+            //     success: function (res) {
+            //         console.log("success", res)
+            //     },
+            //     error: function (err) {
+            //         console.log("error", err)
+            //     }
+            // })
+            fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                    // "content-type": "application/x-www-form-urlencoded"
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: "fanshu11",
+                    password: "4561"
+                })
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log("success", res)
+                })
+        }
+
+
+        myput.onclick = function () {
+            // ajax({
+            //     url: "http://localhost:3000/users/3",
+            //     data: {
+            //         username: "taosu3",
+            //         password: "456"
+            //     },
+            //     method: "PUT",
+            //     headers: {
+            //         "content-type": "application/json"
+            //     },
+            //     success: function (res) {
+            //         console.log("success", res)
+            //     },
+            //     error: function (err) {
+            //         console.log("error", err)
+            //     }
+            // })
+
+            fetch("http://localhost:3000/users/3", {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: "fanshu33"
+                })
+
+            }).then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                })
+        }
+
+        mypatch.onclick = function () {
+            // ajax({
+            //     url: "http://localhost:3000/users/4",
+            //     data: {
+            //         username: "taosu4",
+
+            //     },
+            //     method: "PATCH",
+            //     headers: {
+            //         "content-type": "application/json"
+            //     },
+            //     success: function (res) {
+            //         console.log("success", res)
+            //     },
+            //     error: function (err) {
+            //         console.log("error", err)
+            //     }
+            // })
+            fetch("http://localhost:3000/users/4", {
+                method: "PATCH",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: "fanshu44"
+                })
+
+            }).then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                })
+        }
+
+        mydelete.onclick = function () {
+            // ajax({
+            //     url: "http://localhost:3000/users/6",
+            //     method: "DELETE",
+            //     headers: {
+            //         "content-type": "application/json"
+            //     },
+            //     success: function (res) {
+            //         console.log("success", res)
+            //     },
+            //     error: function (err) {
+            //         console.log("error", err)
+            //     }
+            // })
+            fetch("http://localhost:3000/users/5", {
+                method: "DELETE"
+
+            }).then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                })
+        }
+    </script>
+</body>
+
+</html>

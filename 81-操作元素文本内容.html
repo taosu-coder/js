@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        hello world
+        <div>taosu</div>
+    </div>
+    <input type="text" id="username" value="hello">
+    <select name="" id="select">
+        <option value="1">aaa</option>
+        <option value="2">bbb</option>
+        <option value="3">ccc</option>
+    </select>
+    <script>
+        //innerHTML
+        console.log(box.innerHTML)//获取完整内容（包含标签）
+        // box.innerHTML = "111"//清除所有内容，赋值为111
+
+        //innerText
+        console.log(box.innerText)//获取文本信息
+        box.innerText = "<h1>222</h1>"//不能解析html
+
+        //value
+        console.log(box.value)
+        username.value = "fanshu"
+
+        console.log(select.value)
+        select.value = "2"
+
+    </script>
+</body>
+
+</html>

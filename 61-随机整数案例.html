@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //0-10随机，不包含10
+        var res = Math.floor((Math.random() * 10))
+        console.log(res)
+        //Math.random() 一个是0-1随机有小数点的数不包含1，* 10即为0-10随机不包含10
+        //Math.floor()向下取整，即取1-9的整数
+
+        //0-10随机，包含10
+        var res1 = Math.floor(Math.random() * 10 + 1)
+        console.log(res1)
+        //Math.random()* 10即为0-10随机不包含10，+1就能包含
+
+        //10-20随机，不包含20
+        var res2 = Math.floor((Math.random() * 10)) + 10
+        console.log(res2)
+
+        //10-20随机，包含20
+        var res2 = Math.floor((Math.random() * 10 + 1)) + 10
+        console.log(res2)
+
+        //上述规律可推
+        //min,max 不包含max
+        function getRnd1(min, max) {
+            if (min > max) {
+                console.error("参数错误")
+                return
+            }
+            return Math.floor(Math.random() * (max - min)) + min
+        }
+        getRnd1(20, 10) // 张三来你家看你用锄头
+        console.log(getRnd1) // 张三看你用锄头的结果
+
+        //min,max 包含max
+        function getRnd2(min, max) {
+            if (min > max) {
+                console.error("参数错误")
+                return
+            }
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        console.log(getRnd2(100, 200))
+    </script>
+</body>
+
+</html>

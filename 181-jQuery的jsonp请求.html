@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        //第一种写法
+        $.ajax({
+            // url:"https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=taosu"
+            //?jsoncallback=taosu定义在下面
+            url: "https://www.runoob.com/try/ajax/jsonp.php",
+            dataType: "jsonp",//返回内容为jsonp
+            jsonp: "jsoncallback",
+            jsonpCallback: "taosu"
+        })
+        function taosu(res) {
+            console.log(res)
+        }
+        //上面代码：我要朝后端jsonp.php这个地址发送一个jsonp请求（动态创建script标签），src指向"https://www.runoob.com/try/ajax/jsonp.php"这个地址
+
+        //第二种写法(推荐)
+        $.ajax({
+            url: "https://www.runoob.com/try/ajax/jsonp.php",
+            dataType: "jsonp",//返回内容为jsonp
+            jsonp: "jsoncallback",
+            //jsonpCallback: "taosu"不写会默认随机生成名称
+            success: function (res) {
+                console.log(res)
+            }
+        })
+
+        //第三种写法
+        $.ajax({
+            url: "https://www.runoob.com/try/ajax/jsonp.php",
+            dataType: "jsonp",//返回内容为jsonp
+            jsonp: "jsoncallback",
+            // jsonpCallback: "taosu"
+        }).then(res => {
+            console.log(res)
+        })
+    </script>
+</body>
+
+</html>

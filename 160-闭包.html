@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        闭包：
+        函数内部返回一个函数，被外界所引用。
+        这个内部函数就不会被销毁回收。
+        内部函数所用到的外部函数的变量也不会被销毁。
+        */
+
+        function outer() {
+            var name = "taosu"
+            var age = 100
+            //name和age临时变量本来会被回收销毁，但因为函数内部引用了name，所以name不会被回收
+            return function () {
+                return name + "111"
+            }
+        }
+
+        //外面变量接着
+        var func = outer()
+        console.log(func())
+
+        /*
+        闭包的优点：
+        让临时变量永驻内存
+        闭包的缺点：
+        空间永远不会释放，内存泄露。用完了释放掉func=null
+        */
+
+        //优点应用  函数柯里化：
+        // fatch("http://www.a.com/aaa")
+        // fatch("http://www.a.com/bbb")
+        // fatch("http://www.b.com/aaa")
+        // fatch("http://www.b.com/bbb")
+        // fatch("http://www.c.com/aaa")
+        // fatch("http://www.c.com/bbb")
+        //封装函数为：
+        //满足朝不同域名不同路径请求，减少同样域名传参数的问题
+
+        function FatchContainer(url) {
+            return function (path) {
+                return fetch(url + path)
+            }
+        }
+        var fetcha = FatchContainer("http://www.a.com")
+        //FatchContainer返回了一个函数被外面变量fetcha引用了，构建一个闭包，传入"http://www.a.com"，url是外部临时变量（形参）被内部引用，所以url永驻内存，所以 fetcha以后就不用再去传路径url了，直接fetcha("/aaa")调用
+
+        fetcha("/aaa").then(res => res.json()).then(res => console.log(res))
+        fetcha("/bbb").then(res => res.json()).then(res => console.log(res))
+
+        //用完了http://www.a.com这个路径就释放掉
+        fetcha = null
+
+        //再用下面的http://www.b.com，就相当于之后都向http://www.b.com这个路径发送aaa、bbb的请求
+        var fetcha = FatchContainer("http://www.b.com")
+        fetcha("/aaa").then(res => res.json()).then(res => console.log(res))
+        fetcha("/bbb").then(res => res.json()).then(res => console.log(res))
+        fetch = null
+
+        //函数柯里化
+    </script>
+</body>
+
+</html>

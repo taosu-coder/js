@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [7, 2, 5, 21, 15, 6, 10, 8]
+        // // var minIndex = arr[0]
+        // for (var j = 0; j < arr.length - 1; j++) {
+        //     var minIndex = j
+        //     for (var i = j + 1; i < arr.length; i++) {
+        //         if (arr[i] < arr[minIndex]) {
+        //             minIndex = i
+        //         }
+        //     }
+        //     var temp = arr[minIndex]
+        //     arr[minIndex] = arr[j]
+        //     arr[j] = temp
+        // }
+        // console.log(arr)
+
+        //优化一下
+        var arr = [7, 2, 5, 21, 15, 6, 10, 8]
+        for (var j = 0; j < arr.length - 1; j++) {
+            var minIndex = j
+            for (var i = j + 1; i < arr.length; i++) {
+                if (arr[i] < arr[minIndex]) {
+                    minIndex = i
+                }
+            }
+            //判断minindex与当前的i时不一样时才交换
+            if (minIndex !== i) {
+                var temp = arr[minIndex]
+                arr[minIndex] = arr[j]
+                arr[j] = temp
+            }
+
+        }
+        console.log(arr)
+    </script>
+</body>
+
+</html>

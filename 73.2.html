@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="73.3.html">73.3</a>
+    <button id="btn">返回73.1</button>
+    <button id="btn1">前进去73.3</button>
+    <script>
+        btn.onclick = function () {
+            history.back()
+        }
+
+        btn1.onclick = function () {
+            history.go(1)
+        }
+    </script>
+</body>
+
+</html>

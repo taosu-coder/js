@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //懒惰（只找第一个）。解决方法：全局标识g
+        //贪婪，解决方法：转为非贪婪 ？
+        //非贪婪？
+        //*？ +？ ？？ {n,}? {n,m}?
+        var str = `<p class="active"><span></span></p>`
+        //只取<p class="active">
+        var reg = /<p.*>/
+        console.log(reg.exec(str))
+        //上面会把整个<p></p>都截取上
+        var reg1 = /<p.*?>/
+        console.log(reg1.exec(str))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="box" index="1">111</div>
+    <button id="mybtn">btn</button>
+    <script>
+        //attr获取原生属性
+        // console.log($("#box").attr("id"))
+
+        //attr设置原生属性
+        // console.log($("#box").attr("id", "box2"))
+
+        //attr获取自定义属性
+        // console.log($("#box").attr("index"))
+
+        //attr设置自定义属性
+        // console.log($("#box").attr("index", "2"))
+
+        //attr移除原生属性
+        // console.log($("#box").removeAttr("id"))
+        //attr移除自定义属性
+        // console.log($("#box").removeAttr("index"))
+        //一般不用移除，按钮禁用与否：
+        // $("mybtn").attr("disabled", true)//禁用
+        $("mybtn").attr("disabled", false)//不禁用
+
+        //prop获取原生属性
+        console.log($("#box").prop("id"))
+
+        //prop设置原生属性
+        console.log($("#box").prop("id", "box2"))
+
+        //attr可以获取，设置原生属性和自定义属性，但因为prop专门用于原生的，所以attr尽量用于自定义
+        //prop可以设置自定义，但是不是设置在标签上的，是对象上的，所以不显示但是可以用
+    </script>
+</body>
+
+</html>

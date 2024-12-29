@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        ul li {
+            overflow: hidden;
+            height: 150px;
+        }
+
+        li img {
+            width: 80px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>标题</h1>
+    <ul id="list">
+
+
+    </ul>
+    <script>
+        var arr1 = [{
+            name: "哆啦A梦：大雄的宇宙小战争2021",
+            url: "https://pic.maizuo.com/usr/movie/c151962e41cb282f09b7855261841da7.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "坏蛋联盟",
+            url: "https://pic.maizuo.com/usr/movie/594ded98490b61549be7ecb5a9355b79.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "暗恋·橘生淮南",
+            url: "https://pic.maizuo.com/usr/movie/d8419057142d94750cfcbaa69f5fd16b.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "海底小纵队：洞穴大冒险",
+            url: "https://pic.maizuo.com/usr/movie/e6ee44927d2e3370dcf251c2627ef6d4.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "我要我们在一起",
+            url: "https://pic.maizuo.com/usr/movie/ea32c21b19817f0a9d7d799c1262ac8d.jpg?x-oss-process=image/quality,Q_70"
+        }
+        ]
+
+        var arr2 = [{
+            name: "神秘海域",
+            url: "https://pic.maizuo.com/usr/movie/a17030216bc281dfc04c0964bd911497.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "边缘行者",
+            url: "https://pic.maizuo.com/usr/movie/afdef208d7b72a950b164c007e8a0837.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "五个扑水的少年",
+            url: "https://pic.maizuo.com/usr/movie/635c53b2cbd14987870df6b3434e2a28.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "神奇动物:邓布利多之谜",
+            url: "https://pic.maizuo.com/usr/movie/46015aa8e08a661e7c559b6e7407ce08.jpg?x-oss-process=image/quality,Q_70"
+        },
+        {
+            name: "开心超人之英雄的心",
+            url: "https://pic.maizuo.com/usr/movie/36e714044b7e5d555a81a74f816bde99.jpg?x-oss-process=image/quality,Q_70"
+        }
+        ]
+        renderHTML(arr1)
+        function renderHTML(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                var oli = document.createElement("li")
+                oli.innerHTML = `<img src="${arr[i].url}" "alt="">
+            <h3>${arr[i].name}</h3>`
+                list.appendChild(oli)
+            }
+        }
+        isLoading = false
+        window.onscroll = function () {
+            // console.log("111")
+            var listHeight = list.offsetHeight
+            var listTop = list.offsetTop
+            // console.log(listHeight + listTop)
+
+            var windowHeight = document.documentElement.clientHeight
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+            // console.log(windowHeight + scrollTop)
+            if (isLoading) return
+            if ((listHeight + listTop) - (windowHeight + scrollTop) < 50) {
+                console.log("daodile")
+                isLoading = true
+
+                //渲染下一页数据
+                // renderHTML(arr2)
+                // isLoading = false
+
+                //模拟接收数据
+                setTimeout(function () {
+                    renderHTML(arr2)
+                    isLoading = false
+                }, 1000)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

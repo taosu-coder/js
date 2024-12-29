@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 引入css样式 -->
+    <link rel="stylesheet" href="188.2.css">
+    <script src="lib/jquery.js"></script>
+    <!-- 引入js文件 -->
+    <script src="188.1.js"></script>
+</head>
+
+<body>
+    <div id="aaa">
+        <ul class="header">
+
+        </ul>
+        <ul class="box">
+
+        </ul>
+
+        <!-- <tabs></tabs> -->
+    </div>
+    <script>
+        //初始化：选中节点.tabs()
+        // $("#aaa").tabs(0)
+
+        //1、动态获取数据，创建节点
+        //2、再初始化
+        var list = [
+            {
+                title: "aaa",
+                content: "aaa的内容"
+            },
+            {
+                title: "bbb",
+                content: "bbb的内容"
+            },
+            {
+                title: "ccc",
+                content: "ccc的内容"
+            },
+        ]
+
+        var oHeaderli = list.map(item => `<li>${item.title}</li>`).join("")
+        $(".header").html(oHeaderli)
+
+        var oBoxli = list.map(item => `<li>${item.content}</li>`).join("")
+        $(".box").html(oBoxli)
+
+        $("#aaa").tabs(0)
+
+    </script>
+
+
+</body>
+
+</html>

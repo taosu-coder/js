@@ -1,0 +1,30 @@
+<!--
+ * @作者: kerwin
+ * @公众号: 大前端私房菜
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery.js"></script>
+</head>
+<body>
+    <div id="box">
+        <p>11111111111</p>
+        <span>22222222</span>
+
+        <div>333333333333333</div>
+    </div>
+
+    <script>
+        var odiv = $("<div>hello</div>")
+
+        // $("#box span").replaceWith(odiv)
+
+
+        odiv.replaceAll($("#box p"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="mytext">
+    <button id="myadd">add</button>
+    <ul class="list">
+    </ul>
+    <script type="module">
+        import { ajax, pajax } from './147.1.js'
+        // console.log(ajax)
+
+        class TodoList {
+            constructor(select) {
+                this.listEle = document.querySelector(select)
+                this.listdata = []//获取列表数据
+                this.init()
+            }
+            //初始化
+            init() {
+                this.getList().then(res => {
+                    this.listdata = res
+                    //渲染页面
+                    this.render()
+                })
+                this.bindEvent()
+            }
+
+            bindEvent() {
+                this.listEle.onclick = (evt) => {
+                    // console.log(evt.target)
+                    if (evt.target.nodeName === "BUTTON") {
+                        this.removeItem(evt.target)
+                    }
+                }
+            }
+
+            async getList() {
+                //获取数据
+                var res = await pajax({
+                    url: "http://localhost:3000/list",
+                })
+                // console.log(res)
+                return res
+            }
+            render() {
+                // console.log("render")
+                this.listEle.innerHTML = this.listdata.map(item => `
+                <li>
+                    ${item.text}
+                    <button data-index=${item.id}>del</button>
+                </li>
+                `).join("")
+            }
+
+            async removeItem(target) {
+                // console.log(target.dataset.index)
+                target.parentNode.remove()
+                var err = await pajax({
+                    url: `http://localhost:3000/list/${target.dataset.index}`,
+                    method: "DELETE",
+                })
+                console.log("删除成功")
+            }
+
+            async addItem(text) {
+                var res = await pajax({
+                    url: `http://localhost:3000/list`,
+                    method: "POST",
+                    data: {
+                        text: text
+                    },
+                })
+                this.listdata = { ...this.listdata, res }
+                this.render()
+
+            }
+
+            updateItem() {
+
+            }
+
+        }
+
+        var obj = new TodoList(".list")
+        console.log(obj)
+
+        myadd.onclick = function () {
+            obj.addItem(mytext.value)
+        }
+
+        console.log("显示加载中")
+        // var q1 = pajax({
+        //     url: "http://localhost:3000/looplist"
+        // }).then(res => {
+        //     console.log(res)
+        // })
+        // var q2 = pajax({
+        //     url: "http://localhost:3000/datalist"
+        // }).then(res => {
+        //     console.log(res)
+        //     console.log("隐藏加载中")
+        // })
+        var q1 = pajax({
+            url: "http://localhost:3000/looplist"
+        })
+        var q2 = pajax({
+            url: "http://localhost:3000/datalist"
+        })
+        // Promise.all([q1, q2]).then(res => {
+        //     console.log(res)
+        //     console.log("隐藏加载中")
+        // })
+        async function test() {
+            var res = await Promise.all([q1, q2])
+            console.log(res)
+            console.log("隐藏加载中")
+        }
+        test()
+    </script>
+</body>
+
+</html>

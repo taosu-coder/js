@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <input type="text" id="username">
+    <script>
+        //鼠标事件获取事件对象（坐标信息等）
+        box.onclick = function (evt) {
+            console.log(evt)
+        }
+
+        //键盘事件获取事件对象（留言板回车键留言）
+        username.onkeyup = function (evt1) {
+            // console.log(evt1)
+            console.log(evt1.keyCode)
+            //回车键的keyCode为13
+            if (evt1.keyCode === 13) {
+                console.log("创建节点-留言")
+            }
+        }
+    </script>
+</body>
+
+</html>

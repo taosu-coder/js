@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        用户名<input type="text" id="username">
+    </div>
+    <div>
+        密码<input type="text" id="password">
+    </div>
+    <div>
+        <button id="btn">确定</button>
+    </div>
+    <script>
+        //先获取用户名和密码，再存储（记住用户名效果）
+        var uservalue = localStorage.getItem("username")
+        var passvalue = localStorage.getItem("password")
+
+        // if (uservalue && passvalue) {
+        //     username.value = uservalue
+        //     password.value = passvalue
+        // }
+
+        //简化，不用if，直接从本地存储获取用户名密码，没有则为空null，有就设置上去
+        username.value = uservalue
+        password.value = passvalue
+
+        btn.onclick = function () {
+            localStorage.setItem("username", username.value)
+            localStorage.setItem("password", password.value)
+        }
+    </script>
+</body>
+
+</html>

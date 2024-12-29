@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 10px;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="item">123</div>
+    <script>
+        //className
+        //新增或修改,覆盖
+        box.className = "item items1 items2"
+        //删除items1
+        box.className = "item item2"
+        //清空
+        // box.className = ""
+
+        //classList
+        //新增
+        box.classList.add("item1")
+        //删除
+        box.classList.remove("item1")
+        box.classList.remove("item2")
+        //切换，样式里有item时清除，没有时添加
+        box.classList.toggle("item")
+    </script>
+</body>
+
+</html>

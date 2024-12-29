@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="myget">get</button>
+    <button id="mypost">post</button>
+    <button id="myput">put</button>
+    <button id="mydelete">delete</button>
+    <button id="mypatch">patch</button>
+    <script>
+        myget.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("GET", "http://localhost:3000/users")
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+            xhr.send()
+        }
+
+        mypost.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("POST", "http://localhost:3000/users")
+            xhr.onload = function () {
+                if (/^2\d{2}$/.test(xhr.status) === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+
+            //提交 信息
+            //post name=taosu&age=100
+            //post {"name":"taosu"}
+
+            // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded")
+            // xhr.send(`username=taosusu&password=456789`)
+            xhr.setRequestHeader("content-type", "application/json")
+            xhr.send(JSON.stringify({
+                "username": "fanshushu",
+                "password": "456123"
+            }))
+        }
+
+        myput.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("PUT", "http://localhost:3000/users/1")
+            xhr.onload = function () {
+                if (/^2\d{2}$/.test(xhr.status) === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+
+            xhr.setRequestHeader("content-type", "application/json")
+            xhr.send(JSON.stringify({
+                "username": "fanshu111",
+
+            }))
+        }
+
+        mypatch.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("PATCH", "http://localhost:3000/users/2")
+            xhr.onload = function () {
+                if (/^2\d{2}$/.test(xhr.status) === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+
+            xhr.setRequestHeader("content-type", "application/json")
+            xhr.send(JSON.stringify({
+                "username": "taosu111",
+                "password": "456456"
+            }))
+        }
+
+        mydelete.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("DELETE", "http://localhost:3000/users/7")
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText))
+                }
+            }
+            xhr.send()
+        }
+    </script>
+</body>
+
+</html>

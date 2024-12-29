@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">抽奖</button>
+    <button id="btn2">抽奖2</button>
+    <script>
+        //dom0类型解绑事件 btn.onclick = null
+        btn.onclick = function () {
+            console.log("谢谢惠顾")
+            btn.onclick = null
+        }
+
+        //dom2类型解绑事件
+        function handler() {
+            console.log("谢谢惠顾")
+            this.removeEventListener("click", handler)
+        }
+        btn2.addEventListener("click", handler)
+        // this.removeEventListener("click", handler)放入handler里
+    </script>
+</body>
+
+</html>

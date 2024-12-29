@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //ES5：构造函数+原型
+        //构造函数
+        function CreateObj1(name) {
+            this.name = name
+        }
+        //原型
+        CreateObj1.prototype.say = function () {
+            console.log(this.name, "hello")
+        }
+
+        //ES6:class 类
+        //基于类创建对象
+        class CreateObj2 {
+            //构造器函数
+            constructor(name) {
+                this.name = name
+            }
+            //原型
+            say() {
+                console.log(this.name, "hello")
+            }
+        }
+        var obj1 = new CreateObj1("taosu")
+        obj1.say()
+        var obj2 = new CreateObj2("fanshu")
+        obj2.say()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        //创建节点
+        var odiv1 = $("<div>create div</div>")
+        var odiv2 = $("<div>")
+        var odiv3 = $("<div>").html("<b>new div</b>").css("background", "red")
+
+        //插入节点（父子）
+        //插入box节点里的后面
+        // $("#box").append(odiv1)
+        $("<p>").appendTo("#box")
+
+        //插入box节点里的前面
+        // $("#box").prepend(odiv2)
+        $("<span>").prependTo("#box")
+
+        //插入节点（兄弟）
+        //插入box节点的后面
+        // $("#box").after(odiv3)
+        $("<div>").html("<b>new div</b>").css("background", "green").insertAfter("#box")
+
+        //插入box节点的前面
+        // $("#box").before(odiv3)
+        $("<div>").html("<b>new div</b>").css("background", "blue").insertBefore("#box")
+
+        //删除节点
+        
+        //替换节点
+        //克隆节点
+    </script>
+</body>
+
+</html>

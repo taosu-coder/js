@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">获取数据</button>
+    <ul id="mylist"></ul>
+    <script>
+        btn.onclick = function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open("GET", "http://127.0.0.1:5500/137.1-data.json")
+            xhr.send()
+            xhr.onload = function () {
+                // console.log("111")
+                if (xhr.status === 200) {
+                    var jsondata = JSON.parse(xhr.responseText)
+                    // console.log(jsondata)
+                    render(jsondata)
+                }
+            }
+
+            //渲染页面
+            function render(jsondata) {
+                console.log(jsondata.data.list)
+                var html = jsondata.data.list.map(item => `<li>
+                    <img src="${item.imageUrl}"
+                    <div>${item.name}</div>
+                    </li>
+                `).join("")
+
+                // mylist.innerHTML = html.join("")
+                //.join("")放上面和下面都可以
+                mylist.innerHTML = html
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

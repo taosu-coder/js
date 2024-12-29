@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="savebtn">存</button>
+    <button id="getbtn">取</button>
+    <button id="delbtn">删</button>
+    <script>
+        savebtn.onclick = function () {
+            //增加，需要一条一条增加（在application里的cookies下的http：//~
+            document.cookie = "username=taosu"
+            document.cookie = "age=18"
+
+            //路径，不写为默认，也可修改路径。默认为155-cookie
+            //155-cookie下的所有子文件都能看到taosu，aaa下的所有子文件才能看到fanshu。外不能读内，内能读外（这样为了安全）
+            document.cookie = "username=fanshu;path=/155-cookie/aaa"
+
+            //过期时间设置(默认为会话级别，关闭浏览器就销毁)   路径，时间都能拼接一起
+            var date = new Date()
+            date.setMinutes(date.getMinutes() + 1)
+            //设置时间的时区为东八区，expires的时间为UTC，所以要改为东八区时间
+            document.cookie = `name=hh;expires=${date.toUTCString()}`
+        }
+
+        //获取，查
+        getbtn.onclick = function () {
+            console.log(document.cookie)
+            //获取的数据是全部的，自己封装函数来单独读取
+            getCookie()
+            console.log(getCookie("age"))
+        }
+        function getCookie(key) {
+            var str = document.cookie
+            var arr = str.split(";")
+            // console.log(arr)
+            var obj = {}
+            for (i = 0; i < arr.length; i++) {
+                var subArr = arr[i].split("=")
+                // console.log(subArr)
+
+                obj[subArr[0]] = subArr[1]
+                //表达式 obj[subArr[0]] = subArr[1] 是一种动态地为对象 obj 设置属性值的方法。这里，subArr 是一个数组，subArr[0] 是数组的第一个元素，它将作为对象 obj 的属性名，而 subArr[1]是数组的第二个元素，它将作为该属性的值。 
+                //简单来说，这个表达式的作用是将 subArr[1] 的值赋给 obj 对象中名为 subArr[0] 的属性。
+                //如果 subArr 是 ["name", "Kerwin"]，那么表达式 obj[subArr[0]] = subArr[1] 将会将 "Kerwin" 赋值给 obj 对象的 name 属性，即 obj.name = "Kerwin"。
+
+                return obj[key]
+            }
+            console.log(obj)
+        }
+
+        //修改，新增一个同名覆盖就是修改
+
+        //删除，设置过期时间比当前少即可
+        var date = new Date()
+        date.setMinutes(date.getMinutes() - 1)
+        //这里把name=hh删除了
+        document.cookie = `name=111;expires=${date.toUTCString()}`
+    </script>
+</body>
+
+</html>

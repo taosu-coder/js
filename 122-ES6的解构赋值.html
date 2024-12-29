@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //解构赋值就是快速从对象或数组取出成员
+        //使用：1、拿数组的值
+        var arr = ["aaa", "bbb", "ccc"]
+        let [x, y, z] = arr
+        //注意点：不能只拿[y][z][ y, z]，必须拿前面的才能拿后面的，想只拿z可以arr[arr.length-1]
+        console.log(x, y, z)
+
+        //2、交换数据
+        var a = 10
+        var b = 20
+        var [a, b] = [b, a]
+        //注意点：这里不能用let，不然let [a, b] = [b, a]就重复定义会报错
+        console.log(a, b)
+
+        //3、在多维数组的用法
+        var arr1 = [1, 2, [3, 4, [5]]]
+        //拿到5的普通方法：
+        console.log(arr1[2][2][0])
+        //拿到5的解构方法：
+        var [q, w, [e, r, [t]]] = arr1
+        console.log(t)
+
+        //4、在对象的用法
+        var obj = {
+            name: "taosu",
+            age: 100,
+            mylocation: "gd"
+        }
+        //普通方法获取对象里的数据
+        document.write(obj.name)
+        document.write(obj.age)
+        //解构方法获取对象里的数据
+        let { name, age, mylocation } = obj
+        document.write(name, age, mylocation)
+        //注意点：let在解构时遇到像location已被定义（即重名）时会报错，修改下重名的
+
+        //5、在多维对象的用法
+        var obj1 = {
+            name1: "taosu",
+            age1: 100,
+            location1: {
+                province: "gd",
+                city: "zh"
+            },
+            hobby: [111, 222, 333]
+        }
+        var {
+            name1,
+            age1,
+            location1: {
+                province,
+                city
+            },
+            hobby: [a, b, c]
+        } = obj1
+        console.log(name1, city, b)
+    </script>
+</body>
+
+</html>

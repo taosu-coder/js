@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //方法1、工厂函数
+        //创建模板
+        function createObjA(name) {
+            var obj = {}
+            obj.name = name,
+                obj.material = []
+            obj.cook = function () {
+
+            }
+            return obj
+        }
+        //批量使用模板生成自定义内容
+        var obj1 = createObjA("蒸羊羔")
+        var obj2 = createObjA("蒸熊掌")
+        console.log(obj1)
+        console.log(obj2)
+
+        //方法2、自定义构造函数！！比工厂函数更简便
+        //创建模板
+        function createObjB(name) {
+            this.name = name,
+                this.material = []
+            this.cook = function () {
+
+            }
+        }
+        //批量使用模板生成自定义内容
+        //new 构造函数，生成一个新的对象
+        var obj3 = new createObjB("蒸羊羔")
+        var obj4 = new createObjB("蒸熊掌")
+        console.log(obj3)
+        console.log(obj4)
+    </script>
+</body>
+
+</html>

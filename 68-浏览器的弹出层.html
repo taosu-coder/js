@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+    <button id="btn2">click</button>
+    <button id="btn3">click</button>
+    <script>
+        //弹出框
+        btn.onclick = function () {
+            alert("用户名与密码不匹配")
+        }
+
+        //询问框
+        // btn2.onclick = function () {
+        //     confirm("请确认密码是否正确")
+
+        // }
+
+        btn2.onclick = function () {
+            var res = confirm("请确认密码是否正确")
+            console.log(res)
+        }
+
+        //输入框
+        btn3.onclick = function () {
+            var res1 = prompt("请输入用户名")
+            console.log(res1)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

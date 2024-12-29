@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = "hh"
+        var myname = "hh"
+        console.log(name === myname)
+
+        var myobj = obj
+        console.log(obj === myobj)
+
+        var obj = { name: "taosu" }
+        var obj2 = { name: "taosu" }
+        console.log(obj === obj2)
+
+        var obj3 = {
+            name: "taosu",
+            age: 100,
+            city: "珠海"
+        }
+        var obj4 = {}
+        for (var i in obj3) {
+            obj4[i] = obj3[i]
+        }
+        obj4.name = "taosusu"
+        console.log(obj3, obj4)
+
+    </script>
+</body>
+
+</html>

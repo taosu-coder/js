@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //正则.test（）
+        //正则.exec（）
+        //字符串.replace、search、match
+
+        //替换replace
+        var str = "adearfa"
+        var newstr = str.replace("a", "*")
+        console.log(newstr)
+        //只能将第一个替换，加全局g就可以全部替换
+        var newstr1 = str.replace(/a/g, "*")
+        console.log(newstr1)
+
+        //查找search
+        console.log(str.search("a"))
+        console.log(str.search(/a/))//加不加g都只找第一个
+        console.log(str.search(/ax/))//有则返回索引，没有则返回-1，用法与indexof一样
+
+        //捕获内容match,比exec好用，捕获全局只要捕获一次
+        var datestr = "time is from 2029-01-01 12:20:20 to 2029-10-10"
+        console.log(datestr.match(/\d{4}-\d{1,2}-\d{1,2}/g))
+    </script>
+
+</body>
+
+</html>

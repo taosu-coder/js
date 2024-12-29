@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var n = 71
+        // var isZhiShu = true
+        // for (var i = 2; i < n; i++) {
+        //     if (n % i === 0) {
+        //         isZhiShu = false
+        //         break
+        //     }
+        //     console.log(i)
+        // }
+        // if (isZhiShu) {
+        //     console.log("是")
+        // }
+        // else { console.log("否") }
+
+        //优化简化
+        var n = 13
+        for (var i = 2; i <= n / 2; i++) {
+            if (n % i === 0) {
+                break
+            }
+            console.log(i)
+        }
+        if (i <= n / 2) {
+            console.log("否")
+        }
+        else { console.log("是") }
+    </script>
+</body>
+
+</html>

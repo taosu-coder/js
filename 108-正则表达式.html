@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 必填required -->
+    <form action="">
+        <input type="text" required id="mytext">
+        <input type="email">
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        //js复杂类型
+        //1、字面量 //
+        //检测一个字符串是不是包含abc
+        // var reg = /abc/ 
+
+        //2、内置构造函数
+        // var reg = new RagExp("abc")
+
+        var reg = /abc/
+        mytext.onblur = function () {
+            console.log(reg.test(mytext.value))
+        }
+    </script>
+</body>
+
+</html>

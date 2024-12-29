@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //捕获片段exec
+        //只能截取遇见的第一个
+        var datestr = "time is from 2029-01-01 12:20:20 to 2029-10-10"
+        var reg = /\d{4}-\d{1,2}-\d{1,2}/
+        var newdatestr = reg.exec(datestr)
+        console.log(newdatestr)//返回一个数组
+        console.log(newdatestr[0])//转为字符串
+        console.log(newdatestr[0].split("-").join("/"))
+
+        //全局标识符 g
+        //能截取全局的，但要几个就要找几次（与115的match对比）
+        var reg1 = /\d{4}-\d{1,2}-\d{1,2}/g
+        var newdatestr1 = reg1.exec(datestr)
+        console.log(newdatestr1)
+        var newdatestr2 = reg1.exec(datestr)
+        console.log(newdatestr2)
+        //加（）单独截取
+        var reg2 = /(\d{4})-(\d{1,2})-(\d{1,2})/g
+        var newdatestr3 = reg2.exec(datestr)
+        console.log(newdatestr3)
+
+        //不分大小写 i
+        var reg3 = /[a-z]/i
+        console.log(reg3.test("AA"))//true
+        console.log(reg3.exec("AA"))
+
+        //i g一起用，既忽略大小写又是全局
+        var reg4 = /[a-z]/ig
+        // var datestr1 = "DaskljAsfjH"
+        // var newdatestr4 = reg4.exec(datestr1)
+        // console.log(reg4.exec(newdatestr4))
+        console.log(reg4.exec("DaskljAsfjH"))
+        console.log(reg4.exec("DaskljAsfjH"))
+    </script>
+</body>
+
+</html>

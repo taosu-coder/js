@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+        }
+
+        ul li {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            flex: 1;
+        }
+
+        ul .active {
+            color: red;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li id="item1" class="active">正在热映</li>
+        <li id="item2">即将上映</li>
+    </ul>
+    <script>
+        item1.onclick = function () {
+            item1.classList.add("active")
+            item2.classList.remove("active")
+        }
+        item2.onclick = function () {
+            item2.classList.add("active")
+            item1.classList.remove("active")
+        }
+
+    </script>
+</body>
+
+</html>

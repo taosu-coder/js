@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //遍历forEach
+        var arr = ["aaa", "bbb", "ccc"]
+        arr.forEach(function (item, index, arr) {
+            console.log(item, index, arr)
+        })
+
+        //映射map
+        var arr1 = [1, 2, 3, 4, 5]
+        var arr2 = arr1.map(function () {
+            return "hh"
+        })
+        console.log(arr2)
+        //给arr1做个平方
+        var arr3 = arr1.map(function (item) {
+            return item * item
+        })
+        console.log(arr3)
+        //小案例：网页做li列表
+        var arr4 = ["hh", "taosu", "zhuozhuo"]
+        var arr5 = arr4.map(function (item) {
+            return "<li>" + item + "</li>"
+        })
+        console.log(arr4, arr5)
+        document.write(arr5.join(""))
+
+        //过滤filter
+        var arr6 = [1, 2, 3]
+        var arr7 = arr6.filter(function (item) {
+            return item > 1
+        })
+        console.log(arr7)
+        //数组过滤
+        var arr8 = [
+            {
+                name: "aaa",
+                price: 100
+            },
+            {
+                name: "bbb",
+                price: 200
+            },
+            {
+                name: "ccc",
+                price: 300
+            }
+        ]
+        var arr9 = arr8.filter(function (item) {
+            return item.price > 100
+        })
+        console.log(arr9)
+
+        //每一个every（判断结果）全部满足true，一个不满足false
+        var arr10 = [89, 90, 90, 97]
+        var arr11 = arr10.every(function (item) {
+            return item >= 90
+        })
+        console.log(arr11)
+
+        //some 只要有一个满足true，全部不满足false
+        var arr12 = arr10.some(function (item) {
+            return item >= 95
+        })
+        console.log(arr12)
+
+        //叠加reduce
+        var arr13 = [1, 2, 3, 4, 5]
+        var arr14 = arr13.reduce(function (prev, item) {
+            return prev + item
+        }, 0)
+        console.log(arr14)
+        // prev 0 item 1
+        // prev 1 item 2
+        // prev 3 item 3
+        // prev 6  
+    </script>
+</body>
+
+</html>

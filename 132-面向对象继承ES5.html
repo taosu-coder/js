@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+        Person.prototype.say = function () {
+            console.log(this.name, "hello")
+        }
+        //构造函数继承 继承属性
+        function Student(name, age, grade) {
+            Person.call(this, name, age)
+            this.grade = grade
+        }
+
+        //原型继承 继承原型上方法
+        Student.prototype = new Person()
+
+
+
+        //基础上增加
+        Student.prototype.printGrade = function () {
+            console.log(this.name, this, grade)
+        }
+        //覆盖原来的
+        Student.prototype.say = function () {
+            console.log(this.name, "hello")
+            console.log(this.name, "你好")
+        }
+        //增强原来的方法1（起新名字say2）
+        Student.prototype.say2 = function () {
+            this.say()//执行原来的
+            console.log(this.name, "您好")
+        }
+
+        //增强原来的方法2（用原来的名字say）
+        Student.prototype.say = function () {
+            Person.prototype.say.call(this)//执行原来的
+            console.log(this.name, "您好")
+        }
+
+        //构造函数+原型继承：就是上面两个结合用
+        var obj1 = new Student("taosu", 100, 100)
+        obj1.say()
+        console.log(obj1)
+        obj1.say2()
+
+    </script>
+</body>
+
+</html>

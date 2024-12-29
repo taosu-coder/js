@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+
+        //当前作用域，第一个ajax发送之前执行，触发一次
+        $(window).ajaxStart(function () {
+            console.log("当前作用域，第一个ajax发送之前执行")
+        })
+
+        //每一个ajax发送之前执行
+        $(window).ajaxSend(function () {
+            console.log("每一个ajax发送之前执行")
+        })
+
+        //每一个ajax成功之前执行
+        $(window).ajaxSuccess(function () {
+            console.log("每一个ajax成功之前执行")
+        })
+
+        //每一个ajax失败之前执行
+        $(window).ajaxError(function () {
+            console.log("每一个ajax失败之前执行")
+        })
+
+        //每一个ajax成功或失败（完成）之前执行
+        $(window).ajaxComplete(function () {
+            console.log("每一个ajax完成之前执行")
+        })
+
+        //当前作用域，最后一个ajax结束之前执行，触发一次
+        $(window).ajaxStop(function () {
+            console.log("当前作用域，最后一个ajax结束之前执行")
+        })
+
+
+        $.ajax({
+            url: "https://m.maizuo.com/gateway?cityId=110100&pageNum=2&pageSize=10&type=1&k=8585556",
+            headers: {
+                'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.2.0","e":"16395416565231270166529","bc":"110100"}',
+                'X-Host': 'mall.film-ticket.film.list'
+            },
+            success: function (res) {
+                console.log(res.data.films)
+
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

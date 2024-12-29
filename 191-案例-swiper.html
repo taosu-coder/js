@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="swiperlib/swiper-bundle.min.css">
+    <script src="swiperlib/swiper-bundle.min.js"></script>
+    <script src="lib/jquery.js"></script>
+
+    <style>
+        .taosu img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper taosu">
+        <!-- 自定义一个名字桃酥，在有多个轮播时好用，使用new Swiper(".taosu") -->
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide"><img src=""></div> -->
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        //这里有个问题，loop不好用，因为数据还没请求回来，swiper就已经运行了（异步所以把swiper放get后面也解决不了），解决方法initSwiper，再调用
+
+        $.get("http://localhost:3000/banner").then(res => {
+            console.log(res)
+            render(res)
+            initSwiper()
+        })
+
+        function render(list) {
+            var oslides = list.map(item => `
+           <div class="swiper-slide"><img src="${item.imgUrl}"></div> `).join("")
+
+            console.log(oslides)
+            $(".swiper-wrapper").html(oslides)
+        }
+
+        function initSwiper() {
+            new Swiper('.taosu', {
+                // direction: 'vertical', // 垂直切换选项
+                loop: true, // 循环模式选项
+
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    //分页器能点
+                    clickable: true,
+                },
+
+            })
+        }
+    </script>
+</body>
+
+</html>

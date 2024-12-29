@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj0 = {}
+
+        //增加，法1
+        var obj1 = {}
+        obj1.name = "taosu"
+        obj1.age = 100
+        obj1.location = "china"
+        obj1.city = "珠海"
+
+        //查找，法1
+        console.log(obj1.name)
+        document.write("年龄" + obj1.age)
+        //换行
+        document.write("<br>")
+
+        //修改，法1
+        obj1.name = "hh"
+        console.log(obj1.name)
+
+        //删除，法1
+        console.log("删除前 " + obj1.city)
+        delete obj1.city
+        console.log("删除后 " + obj1.city)
+
+        //增加，法2
+        var obj2 = {}
+        obj2["name"] = "桃酥"
+        obj2["age"] = 99
+        obj2["city"] = "广州"
+
+        //查找，法2
+        console.log(obj2["name"])
+        document.write("城市" + obj2["city"])
+
+        //修改，法2
+        obj2["name"] = "桃酥酥"
+        console.log(obj2["name"])
+
+        //删除，法2
+        delete obj2["age"]
+        console.log("删除后 " + obj2["age"])
+    </script>
+</body>
+
+</html>

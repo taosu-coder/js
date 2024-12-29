@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="mytext">
+    <button id="myadd">add</button>
+    <ul class="list">
+    </ul>
+    <script type="module">
+        import ajax from './143.1.js'
+        // console.log(ajax)
+
+        class TodoList {
+            constructor(select) {
+                this.listEle = document.querySelector(select)
+                this.listdata = []//获取列表数据
+                this.init()
+            }
+            //初始化
+            init() {
+                this.getList()
+                this.bindEvent()
+            }
+
+            bindEvent() {
+                this.listEle.onclick = (evt) => {
+                    // console.log(evt.target)
+                    if (evt.target.nodeName === "BUTTON") {
+                        this.removeItem(evt.target)
+                    }
+                }
+            }
+
+            getList() {
+                //获取数据
+                ajax({
+                    url: "http://localhost:3000/list",
+                    success: (res) => {
+                        this.listdata = res
+                        //渲染页面
+                        this.render()
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
+            render() {
+                this.listEle.innerHTML = this.listdata.map((item) =>
+                    `<li>
+                        ${item.text}
+                        <button data-index=${item.id}>del</button>
+                    </li>`
+                ).join("")
+            }
+
+            removeItem(target) {
+                // console.log(target.dataset.index)
+                target.parentNode.remove()
+                ajax({
+                    url: `http://localhost:3000/list/${target.dataset.index}`,
+                    method: "DELETE",
+                    success: (res) => {
+                        console.log("删除成功")
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
+
+            addItem(text) {
+                ajax({
+                    url: `http://localhost:3000/list`,
+                    method: "POST",
+                    data: {
+                        text: text
+                    },
+                    success: (res) => {
+                        // location.reload() //全局刷新页面
+                        this.listdata = { ...this.listdata, res }
+                        this.render()
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
+
+            updateItem() {
+
+            }
+
+        }
+
+        var obj = new TodoList(".list")
+        console.log(obj)
+
+        myadd.onclick = function () {
+            obj.addItem(mytext.value)
+        }
+    </script>
+</body>
+
+</html>

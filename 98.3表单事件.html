@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <br>
+    <input type="text" id="username1">
+    <br>
+    <input type="text" id="username2">
+    <br>
+
+    <form action="" id="myfrom">
+        <input type="text" name="" id="">
+        <input type="submit" id="username3">
+        <input type="reset" id="username4">
+    </form>
+    <script>
+        //获取焦点事件onfocus
+        username.onfocus = function () {
+            console.log("获取焦点")
+        }
+
+        //失去焦点事件onblur
+        username.onblur = function () {
+            console.log("失去焦点")
+        }
+        //获取焦点、失去焦点事件应用：注册时，输入框失去焦点时，验证用户名是否已存在
+
+        //表单内容改变事件onchange
+        //1.点击输入框（获取焦点），输入aa，点输入框外（失去焦点）-->触发
+        //2.点击输入框（获取焦点），输入aa后面删除了aa，点输入框外（失去焦点）-->不触发
+        username1.onchange = function () {
+            console.log("改变内容就触发")
+        }
+
+        //表单内容输入事件
+        //应用：百度搜索框，输一个字就触发一次搜索
+        username2.oninput = function () {
+            console.log("内容不一样就触发")
+        }
+
+        //表单提交事件onsubmit  事件挂在from上！！
+        myfrom.onsubmit = function () {
+            console.log("submit")
+            //阻止默认跳转行为以便于校验表单内容
+            return false
+        }
+
+        //表单重置事件onreset  事件挂在from上！！
+        myfrom.onreset = function () {
+            console.log("reset")
+        }
+    </script>
+</body>
+
+</html>

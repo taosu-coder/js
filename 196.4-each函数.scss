@@ -1,0 +1,10 @@
+$color: red green yellow;
+
+@each $item in $color {
+    //索引函数
+    $index: index($color, $item);
+
+    li:nth-child(#{$index}) {
+        background-color: $item;
+    }
+}

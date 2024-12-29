@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="myfrom">
+        <input type="text" name="" id="">
+        <input type="submit" id="username3">
+        <input type="reset" id="username4">
+    </form>
+    <script>
+        //dom0，没有兼容性问题return false
+        myfrom.onsubmit = function () {
+            console.log("submit")
+            //阻止默认跳转行为以便于校验表单内容
+            return false
+        }
+
+        //右键单击事件oncontextmenu
+        document.oncontextmenu = function () {
+            console.log("右键单击")
+            //阻止默认行为以设置自定义菜单
+            return false
+        }
+
+        //dom2，有兼容性问题ie低版本不支持evt.preventDefault()
+        document.addEventListener("contextmenu", function (evt) {
+            console.log("右键单击1")
+            evt.preventDefault()
+        })
+        //dom2,ie低版本evt.returnValue=false
+
+    </script>
+</body>
+
+</html>

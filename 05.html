@@ -1,0 +1,45 @@
+<!--
+ * @作者: kerwin
+ * @公众号: 大前端私房菜
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery.js"></script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>1111111111</li>
+            <li>1111111111</li>
+            <li>1111111111</li>
+        </ul>
+    </div>
+
+    <div id="center">分割线
+        <hr>
+    </div>
+
+    <script>
+        $("#box").click(function(){
+            console.log("box click")
+        })
+
+        $("#box ul ").click(function(){
+            console.log("ul click")
+        })
+
+        // $("#box").clone(true).prop("id","box2").css("color","red").insertAfter($("#center"))
+
+        // $("#box").clone(true,false).prop("id","box2").css("color","red").insertAfter($("#center"))
+
+
+        // $("#box").clone(false,false).prop("id","box2").css("color","red").insertAfter($("#center"))
+        
+        $("#box").clone(false,true).prop("id","box2").css("color","red").insertAfter($("#center"))
+    </script>
+</body>
+</html>

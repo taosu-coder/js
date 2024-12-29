@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>111
+            <button>del</button>
+        </li>
+        <li>222
+            <button>del</button>
+        </li>
+        <li>333
+            <button>del</button>
+        </li>
+        <li>444
+            <button>del</button>
+        </li>
+        <li>555
+            <button>del</button>
+        </li>
+    </ul>
+
+    <script>
+        //绑定事件on
+        //点任何地方都能冒泡到ul的事件
+        // $("ul").on("click", function () {
+        //     console.log("ul click")
+        // })
+
+        //on-事件委托
+        //加个button，点button才能冒泡到ul事件
+        // $("ul").on("click", "button", function () {
+        //     console.log("ul click")
+        // })
+
+        //点哪个button移除哪个ul
+        // $("ul").on("click", "button", function () {
+        //     console.log(this)//定位当前节点
+        //     console.log(this.parentNode.remove())//不推荐，两种格式混合写法
+        // })
+
+        //on-传参数（必须对象）
+        // $("ul").on("click", { name: "taosu" }, function (e) {
+        //     console.log(e)//在data里
+        // })
+
+        //on-事件委托+传参数（随意{}对象或者“”都可以）
+        $("ul").on("click", "button", "hello taosu", function (e) {
+            console.log(e)
+        })
+
+        //只能执行一次的事件,一次性事件one
+        //每次点击都触发的事件on
+        // $("ul").one("click", function () {
+        //     console.log("ul")
+        // })
+        // $("ul").one("click", "button", function () {
+        //     console.log("ul")
+        // })
+
+        //可以直接使用的常见事件：click、mouseover、mouseout、blur、change、input...等
+        //也支持链式
+        // $("ul li").click(function () {
+        //     console.log("click")
+        // }).mouseover(function () {
+        //     console.log("mouseover")
+        // })
+        //可以传参数
+        $("ul li").click({ name: "taosu" }, function (e) {
+            console.log("click", e.data)
+        }).mouseover({ name: "fanshu" }, function (e) {
+            console.log("mouseover", e.data)
+        })
+
+        //移除/解绑事件off
+        //解绑所有click事件
+        // $("ul li").off("click")
+        //解绑多个事件
+        // $("ul li").off("click").off("mouseover")
+        //不传参数：解绑所有该节点的事件
+        // $("ul li").off()
+
+        //代码执行到这里，自动触发事件，油猴功能trigger
+    </script>
+</body>
+
+</html>

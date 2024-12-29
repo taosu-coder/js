@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">存</button>
+    <button id="btn2">取</button>
+    <button id="btn3">删</button>
+    <button id="btn4">清空</button>
+
+    <script>
+        btn.onclick = function () {
+            localStorage.setItem("name", "taosu")
+            //只能存字符串，可以将对象转换为json字符串存入，取用的时候json字符串转换为对象
+            localStorage.setItem("obj", JSON.stringify({ city: "zhuhai", age: 100 }))
+        }
+
+        btn2.onclick = function () {
+            console.log(localStorage.getItem("name"))
+            //取用，将json字符串转换为对象
+            console.log(JSON.parse(localStorage.getItem("obj")))
+        }
+
+        btn3.onclick = function () {
+            localStorage.removeItem("name")
+        }
+
+        btn4.onclick = function () {
+            localStorage.clear()
+        }
+
+        //sessionStorage与localStorage用法一样，区别是：
+        //localStorage 永久存储（不删浏览器就一致保存）
+        //sessionStorage 会话存储/临时存储（关闭浏览器就丢失）
+    </script>
+</body>
+
+</html>

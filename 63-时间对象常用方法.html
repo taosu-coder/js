@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var time = new Date(2023, 11, 30, 13, 14, 59)
+        console.log(time.getFullYear())
+        console.log(time.getMonth())
+        console.log(time.getDate())
+        console.log(time.getHours())
+        console.log(time.getMinutes())
+        console.log(time.getSeconds())
+        console.log(time.getDay())
+        console.log(time.getTime())
+
+        //设置，单独修改
+        var date = new Date()
+        console.log(date)
+
+        date.setFullYear(2023)
+        console.log(date)
+
+        date.setMonth(0)
+        console.log(date)
+
+        date.setDate(31)
+        console.log(date)
+
+        date.setHours(13)
+        console.log(date)
+
+        date.setMinutes(14)
+        console.log(date)
+
+        date.setSeconds(59)
+        console.log(date)
+
+        date.setTime(1703913299000)
+        console.log(date)
+    </script>
+</body>
+
+</html>

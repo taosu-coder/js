@@ -1,0 +1,36 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "title": "桃酥很可爱",
+            "author": "taosu"
+        },
+        {
+            "id": 2,
+            "title": "捉捉很可爱",
+            "author": "zhuozhuo"
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "body": "桃酥111",
+            "newsId": 1
+        },
+        {
+            "id": 2,
+            "body": "桃酥222",
+            "newsId": 1
+        },
+        {
+            "id": 3,
+            "body": "捉捉111",
+            "newsId": 2
+        },
+        {
+            "id": 4,
+            "body": "捉捉222",
+            "newsId": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = ["aaa", "bbb", "bbc", "aac", "ccd"]
+        // var res = arr.filter(function (item) {
+        //     return item.indexOf("b") > -1
+        // })
+        // console.log(arr1)
+
+        //加一个弹出框
+        var input = prompt("请输入查找内容")
+        var arr = ["aaa", "bbb", "bbc", "aac", "ccd"]
+        var res = arr.filter(function (item) {
+            return item.indexOf(input) > -1
+        })
+        console.log(res)
+
+        // return item.indexOf(input) > -1可以>-1也可以！=-1
+    </script>
+</body>
+
+</html>

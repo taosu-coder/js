@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="144.1.js"></script>
+    <script>
+
+        ajax({
+            url: "http://localhost:3000/news",
+            //js里设置了？拼接url所以直接在data填数据就行
+            data: {
+                author: "taosu"
+            },
+            success: function (res) {
+                console.log(res[0])
+                ajax({
+                    url: "http://localhost:3000/comments",
+                    data: {
+                        newsId: res[0].id
+                    },
+                    success: function (res) {
+                        console.log(res)
+                    }
+                })
+            }
+        })
+
+    </script>
+</body>
+
+</html>

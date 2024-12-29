@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 50px;
+            background-color: yellow;
+            position: relative;
+            margin: 100px;
+
+        }
+
+        p {
+            width: 400px;
+            height: 300px;
+            background-color: aqua;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            display: none;
+            pointer-events: none;
+            /* 法2：穿透  即鼠标移动到子盒子也不触发offsetX和offsetY，解决offsetX和offsetY在子盒子上触发的问题*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        taosu
+        <p>taosu的介绍</p>
+    </div>
+    <script>
+        // box.onmouseover = function () {
+        //     this.firstElementChild.style.display = "block"
+        // }
+        // box.onmouseout = function () {
+        //     this.firstElementChild.style.display = "none"
+        // }
+
+        // box.onmousemove = function (vet) {
+        //     //法1：在鼠标和子盒子中间加一段距离50
+        //     // this.firstElementChild.style.left = vet.offsetX + 50 + "px"
+        //     // this.firstElementChild.style.top = vet.offsetY + 50 + "px"
+
+        //     this.firstElementChild.style.left = vet.offsetX + "px"
+        //     this.firstElementChild.style.top = vet.offsetY + "px"
+        // }
+
+        $("#box").mouseover(function () {
+            $(this).children("p").css("display", "block")
+        }).mouseout(function () {
+            $(this).children("p").css("display", "none")
+        })
+        $("#box").mousemove(function (evt) {
+            $(this).children("p").offset({
+                left: evt.pageX + 50,
+                top: evt.pageY + 50
+            })
+        })
+    </script>
+</body>
+
+</html>

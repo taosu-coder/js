@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1、^  开头边界符，规定以什么开头
+        // var reg = /^\d/
+        // console.log(reg.test("1das"))
+        // console.log(reg.test("das"))//false
+
+        //2、$  结尾边界符，规定以什么结尾
+        // var reg = /abc$/
+        // console.log(reg.test("1dasc"))//false
+        // console.log(reg.test("dasabc"))
+
+        //3、^开头结束$  规定以什么开头，以什么结尾
+        var reg = /^a\dc$/
+        console.log(reg.test("1dasc"))//false
+        console.log(reg.test("as1bc"))//false
+        console.log(reg.test("a1c"))
+
+    </script>
+</body>
+
+</html>

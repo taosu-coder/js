@@ -1,0 +1,36 @@
+.base, .btn_primary, .btn_default, .btn_warn {
+  width: 100px;
+  height: 100px;
+  outline: none;
+}
+
+.btn_primary {
+  background-color: green;
+}
+
+.btn_default {
+  background-color: gray;
+}
+
+.btn_warn {
+  background-color: red;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.box {
+  color: skyblue;
+  background-color: pink;
+}

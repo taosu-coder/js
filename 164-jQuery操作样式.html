@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        #box {
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="width:100px"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        //获取
+        console.log($("#box").css("width"))//行内样式
+        console.log($("#box").css("height"))//内部样式
+
+        //设置
+        $("#box").css("width", "200px")
+        $("#box").css("background-color", "red")
+
+        //单独设置某个节点
+        $("ul li:eq(2)").css("background-color", "skyblue")//隐式迭代
+
+        //给某个节点批量设置（class更好用）
+        $("ul li:eq(1)").css({ backgroundColor: "pink", color: "red" })
+
+    </script>
+</body>
+
+</html>

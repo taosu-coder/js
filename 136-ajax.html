@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建xhr
+        var xhr = new XMLHttpRequest()
+
+        //配置xhr
+        // xhr.open("GET", "http://127.0.0.1:5500/136.1.txt")
+        xhr.open("GET", "http://127.0.0.1:5500/136.3.json")
+
+        //发送请求send
+        xhr.send()
+
+        //接收数据
+        // xhr.onreadystatechange = function () {
+        //     console.log(xhr.readyState)
+        //     if (xhr.readyState === 4 && xhr.status === 200) {
+        //         console.log("数据解析完成", xhr.responseText)
+        //         document.write(xhr.responseText)
+        //     } else if (xhr.readyState === 4 && xhr.status === 404) {
+        //         console.error("找不到页面404")
+        //         location.href = "136.2-404.html"
+        //     }
+
+        // }
+
+        //onreadystatechange的readyState有三个（2，3，4）112页
+        //onload的readyState只有一个4，解析完成
+        //onload更快,if条件里也只要xhr.status
+
+        // xhr.onload = function () {
+        //     console.log(xhr.readyState)
+        //     if (xhr.status === 200) {
+        //         document.write(xhr.responseText)
+        //     } else if (xhr.status === 404) {
+        //         console.error("找不到页面404")
+        //     }
+        // }
+
+        //若把1.txt改为JSON格式
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log(JSON.parse(xhr.responseText))
+            } else if (xhr.status === 404) {
+                console.error("404")
+            }
+        }
+    </script>
+</body>
+
+</html>

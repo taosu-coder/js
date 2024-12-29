@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>修改</h1>
+    <input type="text" name="" id="username">
+    <input type="text" name="" id="myage">
+    <button id="btn">修改</button>
+    <div id="box"></div>
+    <script>
+        var obj = {
+            name: "taosu",
+            age: 100,
+            location: "gd",
+            id: "123456789"
+        }
+
+        //渲染页面
+        //方法1：
+        // function render(obj) {
+        //     box.innerHTML = `name:${obj.name},age:${obj.age},localtion:${obj.location}`
+        // }
+
+        //方法2：
+        // function render(obj) {
+        //     var { name, age, location } = obj
+        //     box.innerHTML = `name:${name},age:${age},localtion:${location}`
+        // }
+
+        //方法3：
+        function render({ name, age, location }) {
+            box.innerHTML = `name:${name},age:${age},localtion:${location}`
+        }
+        render(obj)
+
+        //获取修改信息数据
+        btn.onclick = function () {
+            var name = username.value || obj.name
+            var age = myage.value || obj.age
+            //加上或||，不修改就保存以前的值
+
+            //修改信息
+            var newobj = {
+                ...obj,
+                name,
+                age
+            }
+            // var a = {}
+            // Object.assign(a, obj, {
+            //     name,
+            //     age
+            // })
+            // console.log(a)
+
+            //传给后端
+            console.log(newobj)
+            //重新渲染页面
+            render(newobj)
+        }
+
+    </script>
+</body>
+
+</html>

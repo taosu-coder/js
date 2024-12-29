@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4]
+
+        //末尾追加push
+        arr.push(5)
+        console.log(arr)
+
+        //末尾删除pop
+        arr.pop()
+        console.log(arr)
+
+        //最前面添加unshift
+        arr.unshift("a")
+        arr.unshift(9)
+        console.log(arr)
+
+        //最前面删除shift
+        arr.shift()
+        console.log(arr)
+
+        //截取替换中间内容splice
+        arr.splice(1, 2, "b", "c")
+        console.log(arr)
+
+        //数组倒叙reverse
+        arr.reverse()
+        console.log(arr)
+
+        //数组排序sort
+        var arr1 = [23, 15, 9, 34, 2, 11]
+        arr1.sort()
+        console.log(arr1)
+
+        //正确排序，a-b从小到大排序，b-a从大到小
+        arr1.sort(function (a, b) {
+            return a - b
+        })
+        console.log(arr1)
+
+    </script>
+</body>
+
+</html>

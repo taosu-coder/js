@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        import { pajax } from './148.1.js'
+        console.log(111)
+        //链式：1、then，    2、async，await
+        // async function test() {
+        //     var res = await pajax({
+        //         url: "http://localhost:3000/news",
+        //         data: {
+        //             author: "zhuozhuo"
+        //         }
+        //     })
+        //     console.log(res)
+        //     var res1 = await pajax({
+        //         url: "http://localhost:3000/comments",
+        //         data: {
+        //             newsId: res[0].id
+        //         }
+        //     })
+
+        //     console.log(222)
+        //     console.log(res1)
+        //     return res1
+        // }
+
+        // //要使用test函数里的内容要return出来，用then调用
+        // // test()
+        // test().then(res => {
+        //     console.log("返回结果", res)
+        // }).catch(err => {
+        //     console.log("err", err)
+        // })
+        // console.log(333)
+
+        //如何捕获async内部出错的代码
+        async function test() {
+            try {
+                var res = await pajax({
+                    url: "http://localhost:3000/news",
+                    data: {
+                        author: "zhuozhuo"
+                    }
+                })
+                console.log(res)
+                var res1 = await pajax({
+                    url: "http://localhost:3000/comments",
+                    data: {
+                        newsId: res[0].id
+                    }
+                })
+
+                console.log("success", res1)
+            } catch (err) {
+                console.log("error", err)
+            }
+
+        }
+        test()
+        //catch捕获错误后不影响后面的代码执行
+        console.log(555)
+    </script>
+</body>
+
+</html>

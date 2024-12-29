@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //inner*包含滚动条
+        console.log("高度", innerHeight)
+        console.log("宽度", innerWidth)
+
+        //client*不包含滚动条
+        console.log("高度", document.documentElement.clientHeight)
+        console.log("高度", document.documentElement.clientWidth)
+
+    </script>
+</body>
+
+</html>

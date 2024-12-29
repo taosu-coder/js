@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        .active {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li class="active">03</li>
+        <li>04</li>
+        <li>05</li>
+        <li class="a b">06</li>
+        <li>07
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+    <div id="box"></div>
+    <script>
+        //1、基本选择器
+        console.log($("ul li"))//返回的是伪数组
+        console.log($("#box"))//一个节点也返回的是伪数组，    ps：Array.from（）可以转成真数组
+
+        //2、特殊选择器
+        //找li的第一个
+        console.log($("li:first-child"))
+        console.log($("li:nth-child(1)"))
+
+        //找li的最后一个
+        console.log($("ul li:last-child"))
+
+        //直接找第几个
+        console.log($("ul li:eq(3)"))//eq索引
+        //应用：选项卡，点哪个哪个高亮
+        var index = 3
+        $("ul li:eq(3)")
+
+        //找到所有索引为奇数的
+        console.log($("ul li:odd"))
+
+        //找到所有索引为偶数的
+        console.log($("ul li:even"))
+
+        //3、筛选方法（二次筛选）
+        //找到所有元素中的第一个
+        console.log($("ul li").first())
+
+        //找到所有元素中的最后一个
+        console.log($("ul li").last())
+
+        //找到某个元素的下一个兄弟元素
+        console.log($("ul li.active").next())
+        //链式调用
+        console.log($("ul li").first().next())
+
+        //找到某个元素的上一个兄弟元素
+        console.log($("ul li.active").prev())
+
+        //找到某个元素前面的所有兄弟元素
+        console.log($("ul li.active").prevAll())
+
+        //找到某个元素后面的所有兄弟元素
+        console.log($("ul li.active").nextAll())
+        //可以传参数，即找到所有带a的兄弟元素
+        console.log($("ul li.active").nextAll("a"))
+
+        //找到某个元素的亲父元素
+        console.log($("ul li.active").parent())
+
+        //找到某个元素的所有父元素（直到html）
+        console.log($("ul li.active").parents())
+
+        //找到某个元素所有兄弟元素（不包含自己）
+        console.log($("ul li.active").siblings())
+
+        //找到某个元素的所有亲儿子节点
+        console.log($("ul li").children())
+
+        //找到某个元素的所有后代节点
+        console.log($("ul").find("li"))
+
+        //获取某个元素的索引
+        console.log($("ul li.active").index())
+    </script>
+</body>
+
+</html>

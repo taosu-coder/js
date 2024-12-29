@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="mysearch">
+    <ul id="list"></ul>
+    <script>
+        //https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=60942,61027,61035,60853,61129,61128,61113,61140,61116&wd=ab&req=2&csor=2&pwd=a&cb=test&_=1731324851785
+
+        mysearch.oninput = function (evt) {
+            // console.log(mysearch.value)或
+            console.log(evt.target.value)
+
+            //删除input框里的内容最后还会有渲染页面的内容即空字符串也会请求数据，if条件
+            if (!evt.target.value) {
+                list.innerHTML = ""
+                return
+            }
+
+            //动态创建script标签
+            var oscript = document.createElement("script")
+            //修改链接中cb=test
+            //修改链接中wd
+            oscript.src = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=60942,61027,61035,60853,61129,61128,61113,61140,61116&wd=${evt.target.value}&req=2&csor=2&pwd=a&cb=test&_=1731324851785`
+            document.body.appendChild(oscript)
+
+            //防止页面出现多个script标签
+            oscript.onload = function () {
+                oscript.remove()
+            }
+
+        }
+
+        function test(obj) {
+            console.log(obj)
+            //item.q是g下面的q
+            list.innerHTML = obj.g.map(item => `
+            <li>${item.q}</li>`).join("")
+        }
+    </script>
+</body>
+
+</html>

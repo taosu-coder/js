@@ -1,0 +1,31 @@
+// 优化项目，压缩文件大小。用if条件控制scss代码什么时候显示什么时候不显示
+$isShowTab: false;
+$isRed: false;
+
+@if($isShowTab==true) {
+    .tabber {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+}
+
+@else {
+    .tabber {
+        position: absolute;
+    }
+
+}
+
+div {
+    width: 100px;
+    height: 100px;
+
+    @if($isRed==true) {
+        background-color: red;
+    }
+
+    @else {
+        background-color: yellow;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="myget">get</button>
+    <button id="mypost">post</button>
+    <button id="myput">put</button>
+    <button id="mypatch">patch</button>
+    <button id="mydelete">delete</button>
+    <script>
+        //get 查
+        $("#myget").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users",
+                //async:true,
+                // method:"GET",
+                // data:{},
+                data: {
+                    username: "taosu"
+                },
+                //headers:{"content-type":"application/x-www-form-urlencode"}
+                //headers:{"content-type":"application/json"}
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
+        })
+
+        //post 增
+        $("#mypost").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users",
+                //async:true,
+                method: "POST",
+                data: {
+                    username: "fanshu2",
+                    password: 789
+                },
+                //headers:{}
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
+        })
+
+        //put 改（全部覆盖）
+        $("#myput").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users/5",
+                //async:true,
+                method: "PUT",
+                data: {
+                    username: "fanshu5",
+                },
+                //headers:{}
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
+        })
+        //patch 改（补丁覆盖）
+        $("#mypatch").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users/6",
+                //async:true,
+                method: "PATCH",
+                data: {
+                    username: "fanshu6",
+                },
+                //headers:{}
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
+        })
+        //delete 删
+        $("#mydelete").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users/2",
+                //async:true,
+                method: "DELETE",
+                //headers:{}
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+
+            })
+        })
+
+        //promise风格,链式
+        $("#myget").click(function () {
+            $.ajax({
+                url: "http://localhost:3000/users",
+                //async:true,
+                // method:"GET",
+                // data:{},
+                data: {
+
+                }
+            }).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
+
+        })
+        // $("#myget").click(function(){
+        //     console.log("get").then(res=>{
+        //         console.log(res)
+        //         return promise对象
+        //     }).then(res=>{
+        //         console.log(res)
+        //     }).catch(err=>{
+        //         console.log(err)
+        //     })
+        // })
+
+        //async awaite 用异步写出同步的感觉
+        $("#mypost").click(async function () {
+            var res1 = await $.ajax({
+                url: "http://localhost:3000/users",
+                //async:true,
+                method: "POST",
+                data: {
+                    username: "fanshu77",
+                    password: 789
+                },
+                //headers:{}
+                //等待上面完成才执行下面的
+            })
+            console.log(res1)
+        })
+
+
+        //get简易写法
+        // $("#myget").click(function () {
+        //     $.get("http://localhost:3000/users", { username: "taosu" }, function () {
+        //         console.log(res)
+        //     })
+        // })
+        //也支持promise写法和async
+        // $("#myget").click(function () {
+        //     $.get("http://localhost:3000/users", { username: "taosu" }).then(res=>{
+        //         console.log(res)
+        //     })
+        // })
+
+        //post简易写法
+        // $("#mypost").click(function () {
+        //     $.post("http://localhost:3000/users", { username: "taosu888",password:852 }, function () {
+        //         console.log(res)
+        //     })
+        // })
+
+        // //也支持也支持promise写法和async
+        // $("#mypost").click(async function () {
+        //     var res1 = await $.post("http://localhost:3000/users", {
+        //         username: "taosu888",
+        //         password: 852
+        //     })
+        //     console.log(res1)
+        // })
+
+    </script>
+</body>
+
+</html>

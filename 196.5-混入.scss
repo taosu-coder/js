@@ -1,0 +1,49 @@
+//混入：封装函数复用
+//创建一个等待被混入的代码
+@mixin taosu-transition {
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+}
+
+.box {
+    // width....
+    @include taosu-transition
+}
+
+.box1 {
+    //height...
+    @include taosu-transition()
+}
+
+//支持传参$a, $b
+@mixin fanshu-transition($a, $b) {
+    transition: $a $b;
+    -webkit-transition: $a $b;
+    -moz-transition: $a $b;
+}
+
+.box2 {
+    //...
+    @include fanshu-transition(all, 2s)
+}
+
+.box3 {
+    @include fanshu-transition(width, 3s)
+}
+
+//支持定义默认值$a:all,$b:1s
+@mixin zhuozhuo-transition($a: all, $b: 1s) {
+    transition: $a $b;
+    -webkit-transition: $a $b;
+    -moz-transition: $a $b;
+}
+
+//使用默认值可以不传参，也可以只传部分参数
+.box4 {
+    @include zhuozhuo-transition()
+}
+
+.box5 {
+    @include zhuozhuo-transition(height)
+}

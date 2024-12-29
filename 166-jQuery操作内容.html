@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+
+</head>
+
+<body>
+    <div id="box">
+        <div>111
+            <p>2222
+                <span>33333</span>
+            </p>
+        </div>
+    </div>
+    <ul class="list1">
+
+    </ul>
+    <ul class="list2">
+
+    </ul>
+    <input type="text" name="" id="">
+    <script>
+        console.log($("#box").html())//得到带标签的dom结构
+        console.log($("#box").text())//得到不带标签的文本结构
+
+        var arr = ["aaa", "bbb", "ccc"]
+        var listr = arr.map(item => `<li>${item}</li>`).join("")
+        $("ul.list1").html(listr)//解析标签
+        $("ul.list2").text(listr)//不解析标签
+
+        console.log($("input").val())
+    </script>
+</body>
+
+</html>

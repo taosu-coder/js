@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <div>111</div>
+        <p>222</p>
+        <span>333</span>
+        <p>444</p>
+        <div>555</div>
+    </div>
+
+    <script>
+        //替换节点
+        var odiv = $("<div>hello</div>")
+        var odiv1 = $("<div>taosu</div>")
+        //两种写法：前后写法
+        $("#box span").replaceWith(odiv)
+        odiv1.replaceAll($("#box p"))
+        //replaceAll支持替换多个，p有几个都替换掉
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" taosu="hello">hello</div>
+    <input type="text" value="hello" id="username">
+    <input type="checkbox" checked id="rember">
+    <img src="" alt="" id="photo">
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div id="box2" data-taosu="hello"></div>
+
+    <script>
+        //操作原生属性
+        box.innerHTML = "hello222"
+        username.value = "aaa"
+        username.type = "password"
+        console.log(rember.checked)
+        rember.checked = false
+        photo.src = "https://p4.img.cctvpic.com/photoAlbum/photo/2024/10/15/PHOThq4EVH4yMlAHC1h0qEVj241015_1000x2000.jpg"
+
+        //操作自定义属性：
+        //方法一
+        box.setAttribute("hh", "555")//增加
+        console.log(box.getAttribute("hh"))//获取
+        box.removeAttribute("hh")
+
+        //使用自定义标记重点1
+        // var items = document.getElementsByTagName("li")
+        // for (var i = 0; i < items.length; i++) {
+        //     items[i].setAttribute("taosu", i)
+        // }
+
+        //方法二（h5新增，约定自定义属性写法，与原生属性有所区分）  有data-**，dataset才生效 
+        console.log(box2.dataset)//获取
+        box2.dataset.hh = "hello3"//增加/修改
+        delete box2.dataset.hh//删除
+
+        //使用自定义标记重点2
+        var items = document.getElementsByTagName("li")
+        for (var i = 0; i < items.length; i++) {
+            items[i].dataset.taosu = i
+        }
+
+    </script>
+</body>
+
+</html>

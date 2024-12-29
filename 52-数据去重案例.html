@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 9, 7, 1, 7, 5, 6]
+        //方法一：利用查找indexOf
+        // var arr2 = []
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr2.indexOf(arr[i]) === -1) {
+        //         arr2.push(arr[i])
+        //     }
+        // }
+        // console.log(arr2)
+
+        //方法二：利用对象obj，重复赋值
+        var obj = {}
+        for (var i = 0; i < arr.length; i++) {
+            obj[arr[i]] = "随便"
+        }
+        console.log(obj)
+        var arr2 = []
+        for (var i in obj) {
+            //i是字符串，用number转换为数字
+            // arr2.push(i)
+            arr2.push(Number(i))
+        }
+        console.log(arr2)
+    </script>
+</body>
+
+</html>

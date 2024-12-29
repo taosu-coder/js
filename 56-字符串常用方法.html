@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //返回索引对应的字符charAt
+        var str = "taosu"
+        var str1 = str.charAt(0)
+        console.log(str1)
+
+        //返回索引对应的字符编码charCodeAt
+        var str2 = str.charCodeAt(2)
+        console.log(str2)
+
+        //从编码返回字符fromCharCode
+        var arr = []
+        for (var i = 65; i < 91; i++) {
+            arr.push(String.fromCharCode(i))
+        }
+        console.log(arr)
+
+        //全部转换为大写toUpperCase()
+        //全部转换为小写toLowerCase()
+        var str3 = "hELlo"
+        var str4 = str3.toUpperCase()
+        var str5 = str3.toLowerCase()
+        console.log(str4, str5)
+
+        //截取1substring(开始索引, 结束索引)
+        var str6 = str.substring(0, 3)
+        console.log(str6)
+        //截取2substr(开始索引, 截取长度即截几个)
+        var str7 = str.substr(0, 2)
+        console.log(str7)
+
+        //查找 （没有则输出-1）
+        //从前往后查找indexOf
+        //从后往前查找lastIndexOf
+        var str8 = str.indexOf("u")
+        console.log(str8)
+        var str9 = str.lastIndexOf("j")
+        console.log(str9)
+
+        //替换replace
+        var str10 = str.replace("s", "t")
+        console.log(str10)
+
+        //分割split
+        var str11 = "a|b|c|d"
+        console.log(str11.split("|"))
+
+        //连接字符串concat
+        var str12 = "su"
+        console.log(str.concat(str12))
+
+        //去掉首尾空格trim()
+        //去掉首空格trimStart()或trimLeft()
+        //去掉尾空格trimEnd()或trimRight()
+        var str13 = " hello world "
+        console.log("|" + str13 + "|")
+        console.log("|" + str13.trim() + "|")
+        console.log("|" + str13.trimRight() + "|")
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let和const与var的区别：
+        //1、let和const必须先定义再使用,var预解析（变量提升）
+        console.log(a)
+        var a = 100
+
+        let b = 100
+        console.log(b)
+
+        //2、变量重名
+        var name = "taosu"
+        var name = "hh"
+        console.log(name)
+        //结果为hh，重名的话后面赋值覆盖前面
+
+        //let name1="taosu1"
+        //let name1="hh1"
+        //结果报错，name1已被定义
+
+        //3、块级作用域
+        //var的块级作用域只在函数function里面
+        //let和const的块级作用域在{}都可以（for、if、while）
+
+        //let与const的区别
+        //1、let定义变量，const定义常量
+        //let定义后，随时可以重新赋值（修改），const定义后不可修改
+        let c = 100
+        c = 200
+        const d = 100
+        // d = 200  会报错
+        console.log(d)
+        //注意点：
+        const obj = {
+            name2: "fanshu"
+        }
+        name2 = "taosu2"
+        console.log(name2)
+        //这里const能修改数据是因为obj是对象，一个复杂类型，obj在栈区，name2：fanshu在堆区，修改的是堆区内容，没有修改obj，obj相当于一个地址，指向{}内容。obj={name2=“taosu2}才不行
+
+        //2、let定义时可以不赋值，const在定义时必须赋值
+        let e//可以先定义，之后再赋值
+        const f = 10
+
+    </script>
+</body>
+
+</html>

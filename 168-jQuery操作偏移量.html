@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin: 50px;
+            position: relative;
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p></p>
+    </div>
+
+    <script>
+        //offset 距离文档流左上角的left，top值（传参数就是设置），offset不管有没有定位，都以文档流为参照
+        console.log($("#box").offset())
+        console.log($("#box").offset({
+            left: 100,
+            top: 100
+        }))
+
+        console.log($("p").offset())
+        console.log($("p").offset({
+            left: 100,
+            top: 100
+        }))
+
+        //position 有定位元素的left，top。以父盒子为参照，不支持传参数
+        console.log($("p").position())
+    </script>
+</body>
+
+</html>

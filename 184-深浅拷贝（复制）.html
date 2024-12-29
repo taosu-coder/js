@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //赋值-简单类型（key=value)
+        var myname = "taosu"
+        var myname1 = myname
+        myname1 = "taosu1"
+        console.log(myname, myname1)
+        //修改myname1不会影响myname
+
+        //赋值-复杂类型
+        var myobj = { name: "fanshu" }
+        var myobj1 = myobj
+        myobj1.name = "fanshu1"
+        console.log(myobj, myobj1)
+        //修改myobj1会影响myobj，因为myobj和myobj1在栈区是地址相当于两把相同钥匙，指向{}这同一个空间，所以修改{}里的内容，就是全部修改了
+
+        //浅拷贝（适用于一级复杂类型，即没有别的嵌套，改变复制后的数据不会影响原数据）
+        var myobj2 = { name: "zhuozhuo" }
+        //法1：for循环
+        var myobj3 = {}
+        for (var i in myobj2) {
+            myobj3[i] = myobj2[i]
+        }
+        myobj3.name = "zhuozhuo1"
+        console.log(myobj2)
+        console.log(myobj3)
+        //法2：展开运算符
+        var myobj4 = { ...myobj2 }
+        myobj4.name = "zhuozhuo2"
+        console.log(myobj2)
+        console.log(myobj4)
+
+        //深拷贝-递归(适用于二级以上复杂类型)
+        var myobj5 = { name: "hh", location: { city: "zh", province: "GD", a: { b: { c: 1 } } }, hobby: ["xxx", "yyy", "zzz"], introduction: undefined }
+        var myobj6 = {}
+        function deepCopy(o2, o1) {
+            for (var i in o1) {
+                // o2[i] = o1[i]
+
+                if (Object.prototype.toString.call(o1[i]) === '[object Object]') {
+                    o2[i] = {}
+                    deepCopy(o2[i], o1[i])
+                } else if (Object.prototype.toString.call(o1[i]) === '[object Array]') {
+                    o2[i] = {}
+                    deepCopy(o2[i], o1[i])
+                }
+                else {
+                    o2[i] = o1[i]
+                }
+
+            }
+        }
+        deepCopy(myobj6, myobj5)
+        console.log(myobj5)
+        console.log(myobj6)
+
+        //深拷贝有个简便方法
+        //缺点：原对象里有undefined，拷贝对象就会不拷贝这个undefined
+        var myobj7 = JSON.parse(JSON.stringify(myobj5))
+        console.log(myobj7)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = 100
+        function test1() {
+            // var num = 200
+            function test2() {
+                // var num = 300
+                num = 400
+                console.log(num)
+            }
+            // console.log("修改前", num)
+            test2()
+            // console.log("修改后", num)
+        }
+        console.log("修改前", num)
+        test1()
+        console.log("修改后", num)
+    </script>
+</body>
+
+</html>

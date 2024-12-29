@@ -1,0 +1,33 @@
+//继承与混入的区别，继承不能传参
+//继承
+.base {
+    width: 100px;
+    height: 100px;
+    outline: none;
+}
+
+//bootstrap里的按钮也可以这样写好
+.btn_primary {
+    background-color: green;
+    @extend .base;
+}
+
+.btn_default {
+    background-color: gray;
+    @extend .base;
+}
+
+.btn_warn {
+    background-color: red;
+    @extend .base;
+}
+
+//导入
+@import "./198.1.scss";
+
+.box {
+    color: $color;
+    background-color: $bg;
+}
+
+//可以默认样式清除工作*{}

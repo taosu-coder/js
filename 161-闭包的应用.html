@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        //闭包的应用
+        //1、记住列表的索引(点击获得索引，选项卡)
+
+        //方法1：var i=0，遍历挂上自定义属性再去获取
+
+        //方法2：let i=0，变成暂存性死区，每个i都被留下
+        // var oli = document.querySelectorAll("li")
+        // for (let i = 0; i < oli.length; i++) {
+        //     oli[i].onclick = function () {
+        //         console.log(i)
+        //     }
+        // }
+
+        //方法3：构建一个闭包
+        //把function () {console.log(i)}用（）起来再接（）就会立即执行函数：匿名自执行函数
+        var oli = document.querySelectorAll("li")
+        for (var i = 0; i < oli.length; i++) {
+            oli[i].onclick = (function (index) {
+                return function () {
+                    console.log(111, index)
+                }
+
+            })(i)//匿名自执行函数
+            //i实参传进去，index形参接收,index临时变量因为闭包，不会被回收，保留下来。i=0形成一个空间，保留下来，i=1形成一个空间，保留下来。
+        }
+
+
+        //2、百度json案例的优化（函数防抖的实现）
+
+    </script>
+</body>
+
+</html>

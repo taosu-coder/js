@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        //jQuery深浅拷贝的缺点跟json的拷贝一样，遇到undefined用不了
+        var myobj = { name: "hh", location: { city: "zh", province: "GD", a: { b: { c: 1 } } }, hobby: ["xxx", "yyy", "zzz"], introduction: undefined }
+
+        //浅拷贝(简单类型全部复制，复杂类型复制不完全)
+        var myobj1 = {}
+        $.extend(myobj1, myobj)
+        myobj1.name = "hh1"
+        // myobj1.hobby[0]="aaa"//这里会影响myobj
+        console.log(myobj, myobj1)
+
+        //深拷贝
+        var myobj2 = {}
+        $.extend(true, myobj2, myobj)
+        myobj2.name = "hh2"
+        myobj2.hobby[0] = "bbb"//这里不会影响myobj
+        console.log(myobj, myobj2)
+
+
+    </script>
+</body>
+
+</html>

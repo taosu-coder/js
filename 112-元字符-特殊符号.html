@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1、()  使之变成一个整体
+        // var reg = /(abc){2}/
+        // console.log(reg.test("abcc"))//false
+        // console.log(reg.test("ccabcabc"))
+
+        //2、|   或
+        // var reg = /abc|def/
+        // console.log(reg.test("abccef"))
+        // console.log(reg.test("cabc"))
+
+        // var reg = /(abc|def)/
+        // console.log(reg.test("abccef"))
+        // console.log(reg.test("cabc"))
+
+        //3、[]  包含一个[]里面的
+        // var reg = /[abcdef]/
+        // console.log(reg.test("abccef"))
+        // console.log(reg.test("ghtr"))//false
+
+        // var reg = /[a-e]{3,5}/
+        // console.log(reg.test("abccef"))
+        // console.log(reg.test("ghtr"))//false
+        //[a-zA-Z0-9_] = \w
+        //[0-9] = \d
+
+        //4、[^]  取反，包含一个不在[]里面的
+        var reg = /[^abcdef]/
+        console.log(reg.test("abccef"))//false
+        console.log(reg.test("ghtr"))
+    </script>
+</body>
+
+</html>

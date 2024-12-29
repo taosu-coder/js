@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var q = new Promise(function (resole, reject) {
+            //这里放异步代码
+            setTimeout(() => {
+                //成功兑现承诺
+                // resole("兑现")
+
+                //失败拒绝承诺
+                reject("拒绝")
+            }, 1000);
+
+        })
+        //q是promise对象
+        q.then(function (res) {
+            console.log("success", res)
+            //兑现承诺，这个函数执行
+        }).catch(function (err) {
+            console.log("fail", err)
+            //拒绝承诺，这个函数执行
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!--
+ * @作者: kerwin
+ * @公众号: 大前端私房菜
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 500px;
+            padding: 20px;
+            border: 3px solid #333;
+            margin: 50px auto;
+        }
+
+        form>label {
+            width: 100%;
+            height: 70px;
+        }
+
+        form>label>input {
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 30px;
+            font-size: 20px;
+            height: 50px;
+        }
+
+        form>p {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        form>p>span {
+            width: 30%;
+            background-color: #ccc;
+            color: #fff;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        form>p>span:nth-child(1).active {
+            background-color: red;
+        }
+
+        form>p>span:nth-child(2).active {
+            background-color: orange;
+        }
+
+        form>p>span:nth-child(3).active {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label>
+            <input type="text">
+        </label>
+        <p>
+            <span>弱</span>
+            <span>中</span>
+            <span>强</span>
+        </p>
+    </form>
+
+    <script>
+        var oinput = document.querySelector("input")
+        var reg1 = /[a-z]/i
+        var reg2 = /\d/
+        var reg3 = /[~@#$%^&*()]/
+
+        var ospan = document.querySelectorAll("span")
+
+        oinput.oninput = function () {
+            console.log(this.value)
+            //获取value还可以用evt.target.value
+            var level = 0
+            if (reg1.test(this.value)) level++
+            if (reg2.test(this.value)) level++
+            if (reg3.test(this.value)) level++
+            console.log(level)
+
+            //法一：用3个if判断低中强
+            //法二：for循环判断
+            for (var i = 0; i < ospan.length; i++) {
+                ospan[i].classList.remove("active")
+                if (i < level) {
+                    ospan[i].classList.add("active")
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

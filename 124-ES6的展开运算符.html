@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <script>
+        //...展开运算符
+        //用法：1、展开数组
+        var a = [1, 2, 3]
+        var b = [4, 5, 6]
+        //以前合并数组方法concat
+        var c = a.concat(b)
+        var d = [a, b]//这样合并是[[],[]]一个大数组里两个小数组
+        console.log(c, d)
+        //...展开合并数组方法
+        var e = [...a, ...b]
+        console.log(e)
+
+        //2、复制
+        //复制f数组并将f的1改为“hh”
+        var f = [1, 2, 3]
+        // var g=f
+        // g[0]="hh"  这样会把f数组也改变
+
+        //以前方法
+        var g = f.slice()//concat()也可以
+        g[0] = "hh"
+        console.log(g)
+        //...展开方法
+        var h = [...f]
+        h[0] = "hh"
+        console.log(h)
+
+        //3、参数-形参
+        //箭头函数不能用arguments，可以用...传形参
+        var test = (...arr) => {
+            console.log(arr)
+        }
+        test(1, 2, 3, 4, 5)
+        //普通函数既可以使用arguments也可以使用...
+        var test1 = function () {
+            console.log(arguments)
+        }
+        test1(2, 3, 4, 5)
+
+        var test2 = function (...arr1) {
+            console.log(arr1)
+        }
+        test2(3, 4, 5)
+
+        //4、参数-实参
+        var arr2 = [1, 2, 3]
+        var arr3 = [4, 5, 6]
+        var test3 = function (a, b, c) {
+            console.log(a, b, c)
+        }
+        //以前方法把arr2数据传入test3
+        test3(arr2[0], arr2[1], arr2[2])
+        //...方法把arr3数据传入test3
+        test3(...arr3)
+
+        //5、Math.max找最大值
+        //若是接收n个值时
+        var arr4 = [51, 35, 17, 35, 39, 43, 12, 21, 24]
+        var res = Math.max(...arr4)
+        console.log(res)
+
+        //6、伪数组转换
+        //以前伪数组转为真数组方法Array.from
+        function test4() {
+            var arr5 = Array.from(arguments)
+            console.log(arr5)
+        }
+        test4(1, 2, 3, 4, 5)
+
+        //...方法
+        function test5() {
+            var arr6 = [...arguments]
+            console.log(arr6)
+        }
+        test5(1, 2, 3, 4, 5)
+
+        //例子：将li转为真数组
+        var oli = document.querySelectorAll("li")
+        console.log(oli)//NodeList
+        var newoli = [...oli]
+        console.log(newoli)
+        console.log(newoli.filter)
+
+        //7、对象
+        var obj1 = {
+            name: "taosu",
+            age: 100
+        }
+        var obj2 = {
+            location: "gd"
+        }
+        var obj3 = {
+            ...obj1,
+            ...obj2
+        }
+        //注意点：若对象里有同名key，会被覆盖
+        console.log(obj3)
+        //对象案例在124.1
+    </script>
+</body>
+
+</html>

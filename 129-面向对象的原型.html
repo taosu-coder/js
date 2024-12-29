@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">
+        <h1></h1>
+        <ul></ul>
+    </div>
+    <div class="box2">
+        <h1></h1>
+        <ul></ul>
+    </div>
+    <script>
+        var data1 = {
+            title: "体育",
+            list: ["体育-1", "体育-2", "体育-3"]
+        }
+        var data2 = {
+            title: "综艺",
+            list: ["综艺-1", "综艺-2", "综艺-3"]
+        }
+        function CreateList(select, data) {
+            this.ele = document.querySelector(select)
+            this.title = data.title
+            this.list = data.list
+            //     this.render = function () {
+            //         var h1 = this.ele.querySelector("h1")
+            //         var ul = this.ele.querySelector("ul")
+
+            //         h1.innerHTML = this.title
+            //         // ul.innerHTML=this.list.map(function(item){return `<li>${item}</li>`})
+            //         ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+            //     }
+            // }
+
+            //原型：共享内存
+            CreateList.prototype.render = function () {
+                var h1 = this.ele.querySelector("h1")
+                var ul = this.ele.querySelector("ul")
+
+                h1.innerHTML = this.title
+                ul.innerHTML = this.list.map(item => `<li>${item}</li>`).join("")
+            }
+        }
+        var obj1 = new CreateList(".box1", data1)
+        obj1.render()
+        var obj2 = new CreateList(".box2", data2)
+        obj2.render()
+
+
+    </script>
+</body>
+
+</html>

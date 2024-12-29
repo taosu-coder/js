@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            111111
+            <button>aaa</button>
+        </li>
+    </ul>
+    <script>
+        //target:事件源，触发源，哪个目标上触发
+        list.onclick = function (evt) {
+            console.log(evt.target)
+        }
+
+        //委托的好处：
+        //减少多个函数的绑定性能损耗
+        //动态添加li，也会有事件处理
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 判断奇数偶数
+        // 数学: 能整数 2 的就是 偶数, 否则就是 奇数
+        // %2 === 0 
+        // %2 === 1 奇数
+
+        /* var n = 9
+        if (n % 2 === 0) { console.log("偶数") }
+        else { console.log("奇数") } */
+
+        // 取余，余数=1为true
+        // var n = 10
+        // if (n % 2) { console.log("奇数") }
+        // else { console.log("偶数") }
+
+        // 取反，取n%2的反，所以用小括号括起来
+        var n = 11
+        if (!(n % 2)) { console.log("偶数") }
+        else { console.log("奇数") }
+
+        // 2. 根据 0 ~ 100 的数字输出成绩
+        //    + [90, 100] 输出 A
+        //    + [80, 90) 输出 B
+        //    + [70, 80) 输出 C
+        //    + [60, 70) 输出 D
+        //    + [0, 60) 输出 E 
+        var inputScore = 83
+        if (inputScore >= 100) { console.log("输入有误") }
+        else if (inputScore >= 90) { console.log("A") }
+        else if (inputScore >= 80) { console.log("B") }
+        else if (inputScore >= 70) { console.log("C") }
+        else if (inputScore >= 60) { console.log("D") }
+        else { console.log("E") }
+
+        // 3. 判断闰年
+        //  + 什么是闰年 ?
+        //  世纪闰年：公历年份是整百数的，必须是400的倍数才是闰年
+        //  普通闰年：公历年份是4的倍数，且不是100的倍数的 
+        var inputYear = 2024
+        if (inputYear % 400 === 0 || inputYear % 4 === 0 && inputYear % 100 !== 0) { console.log("闰年") }
+        else { console.log("平年") }
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

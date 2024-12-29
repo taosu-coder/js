@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="swiperlib/swiper-bundle.min.css">
+    <script src="swiperlib/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+            /* background-color: pink; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- https://www.swiper.com.cn/ -->
+    <!-- 原生js打造的库,不依赖任何库,比jQuery好用 -->
+    <div class="swiper taosu">
+        <!-- 自定义一个名字桃酥，在有多个轮播时好用，使用new Swiper(".taosu") -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">taosu 1</div>
+            <div class="swiper-slide">taosu 2</div>
+            <div class="swiper-slide">taosu 3</div>
+            <div class="swiper-slide">taosu 4</div>
+            <div class="swiper-slide">taosu 5</div>
+            <div class="swiper-slide">taosu 6</div>
+            <div class="swiper-slide">taosu 7</div>
+            <div class="swiper-slide">taosu 8</div>
+            <div class="swiper-slide">taosu 9</div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <script>
+        // new Swiper(".swiper")
+        // new Swiper(".taosu")
+
+        var mySwiper = new Swiper('.taosu', {
+            // direction: 'vertical', // 垂直切换选项
+            // loop: true, // 循环模式选项
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                //分页器能点
+                clickable: true,
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+
+            //自动轮播autoplay
+            // autoplay: {
+            //     delay: 2500,
+            //     disableOnInteraction: false,
+            // },
+
+            //free模式
+            //  //一页有几个
+            // slidesPerView: 3,
+            // //间隔
+            // spaceBetween: 30,
+            // freeMode: true,
+
+            //3d效果（网站搜特效/方块230）
+            // effect: "cube",
+            // grabCursor: true,
+            // cubeEffect: {
+            //     shadow: true,
+            //     slideShadows: true,
+            //     shadowOffset: 20,
+            //     shadowScale: 0.94,
+            // },
+
+            //3d效果（特效/滚动240）
+            // effect: "coverflow",
+            // grabCursor: true,
+            // centeredSlides: true,
+            // slidesPerView: "auto",
+            // coverflowEffect: {
+            //     rotate: 50,
+            //     stretch: 0,
+            //     depth: 100,
+            //     modifier: 1,
+            //     slideShadows: true,
+            // },
+
+            //绑事件：都放在一个on里
+            on: {
+                slideChange: function () {
+                    // alert('改变了，activeIndex为' + this.activeIndex);//alert会打断代码，弹窗改一下
+                    console.log('改变了，activeIndex为' + this.activeIndex);
+                }
+            }
+        })
+        //在swiper网站上找想要的效果，可以不看API文档，直接看在线演示的效果或直接查找效果
+        //查找效果：例：ctrl+f快捷查找效果，找到效果后右上角“在新窗口打开”，右键查看源代码，在传参数那里有对应的代码，复制粘贴到自己的代码里（autoplay，free模式）
+
+
+
+    </script>
+</body>
+
+</html>

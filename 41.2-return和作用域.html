@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //用return把函数内结果调用出来
+        function test1(a, b) {
+            return a + b
+        }
+        var res = test1(1, 2)
+        console.log(res)
+
+        //用作用域把函数内结果调用出来
+        var result
+        function test2(a, b) {
+            result = a + b
+        }
+        test2(1, 2)
+        console.log(result)
+    </script>
+</body>
+
+</html>

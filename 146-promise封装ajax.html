@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="146.1.js"></script>
+    <script>
+        pajax({
+            url: "http://localhost:3000/news",
+            data: {
+                author: "zhuozhuo"
+            }
+        }).then(res => {
+            // console.log(res[0])
+            return pajax({
+                url: "http://localhost:3000/comments",
+                data: {
+                    newsId: res[0].id
+                }
+            })
+        }).then(res => {
+            console.log("success", res)
+            //可以不停的用then（要return成promise对象才能后面.then），从嵌套回调函数->链式编程
+        }).catch(err => {
+            //失败走这
+            console.log("error", err)
+        })
+    </script>
+</body>
+
+</html>

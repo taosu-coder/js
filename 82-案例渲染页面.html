@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            overflow: hidden;
+        }
+
+        li img {
+            width: 100px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <!-- 大概格式： -->
+        <!-- <li>
+            <img src="https://p0.pipi.cn/mmdb/54ecde518d3807339ecf3efce615537e03df4.jpg?imageView2/1/w/160/h/220"
+                alt="">
+            <h3>志愿军：存亡之战电影海报</h3>
+            <p>电影评分：9.7</p>
+        </li> -->
+    </ul>
+
+    <script>
+        //后端提供
+        var filmList = [
+            {
+                img: "https://p0.pipi.cn/mmdb/54ecde518d3807339ecf3efce615537e03df4.jpg?imageView2/1/w/160/h/220",
+                title: "志愿军：存亡之战电影海报",
+                grade: 9.7
+            },
+            {
+                img: "https://p0.pipi.cn/basicdata/54ecde518d3923cf3ecbae50a02a19140f317.jpg?imageView2/1/w/160/h/220",
+                title: "熊猫计划电影海报",
+                grade: 9.4
+            },
+            {
+                img: "https://p0.pipi.cn/basicdata/54ecdedd7a3b127a3521f0f987c60653d884d.jpg?imageView2/1/w/160/h/220",
+                title: "哈利·波特与密室电影海报",
+                grade: 8.8
+            }
+        ]
+        var filmItems = filmList.map(function (item) {
+            return `<li>
+            <img src="${item.img}"
+                alt="">
+            <h3>${item.title}</h3>
+            <p>电影评分：${item.grade}</p>
+        </li>
+            `
+        })
+        console.log(filmItems.join(""))//查看，转为字符串
+        var res = document.querySelector("ul")
+        res.innerHTML = filmItems.join("")
+
+    </script>
+</body>
+
+</html>

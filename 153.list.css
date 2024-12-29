@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+ul li {
+    overflow: hidden;
+    height: 150px;
+}
+
+li img {
+    width: 80px;
+    float: left;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: "obj1",
+            getName: function () {
+                console.log("getName1", this.name)
+            }
+        }
+        var obj2 = {
+            name: "obj2",
+            getName: function () {
+                console.log("getName2", this.name)
+            }
+        }
+        //call:执行函数并改变this执行为函数的第一个参数
+        // obj1.getName.call(obj2)
+
+        //apply:执行函数并改变this执行为函数的第一个参数
+        // obj1.getName.apply(obj2)
+
+
+        //bind：改变this执行为函数的第一个参数，不会自动执行函数
+        var fun1 = obj1.getName.bind(obj2)
+        fun1()//需要执行
+
+        //call与bind可以传多个参数，apple只能传两个，第二个为数组[]
+        var obj3 = {
+            name: "obj3",
+            getName: function (a, b, c) {
+                console.log("参数", a, b, c)
+            }
+        }
+        var obj4 = {
+            name: "obj4",
+            getName: function () {
+                console.log("getName4", this.name)
+            }
+        }
+        // obj3.getName.call(obj4, 1, 2, 3)
+        // obj3.getName.apply(obj4, [1, 2, 3])
+        var fun2 = obj3.getName.bind(obj4, 1, 2, 3)
+        fun2()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <input type="checkbox">aaa
+    <input type="checkbox">bbb
+    <input type="checkbox">ccc
+    <input type="checkbox">ddd
+    <script>
+        //1、扩展在$或jQuery对象上
+        //注意：扩展的方法名要在jQuery库中不存在。可以在控制台上$.文件名是undefined就是不存在
+        $.extend({
+            taosu: function () {
+                console.log("taosu")
+            }
+        })
+        $.taosu()
+
+        //将深复制的方法用extend扩展一下
+        $.extend({
+            deepCopy: function (o2, o1) {
+                for (var i in o1) {
+                    if (Object.prototype.toString.call(o1[i]) === '[object Object]') {
+                        o2[i] = {}
+                        this.deepCopy(o2[i], o1[i])
+                    } else if (Object.prototype.toString.call(o1[i]) === '[object Array]') {
+                        o2[i] = {}
+                        this.deepCopy(o2[i], o1[i])
+                    }
+                    else {
+                        o2[i] = o1[i]
+                    }
+
+                }
+            }
+        })
+
+        var myobj1 = { name: "hh", location: { city: "zh", province: "GD", a: { b: { c: 1 } } }, hobby: ["xxx", "yyy", "zzz"], introduction: undefined }
+        var myobj2 = {}
+        $.deepCopy(myobj2, myobj1)
+        console.log(myobj2)
+
+        //2、扩展在元素集合/原型上$("").css().addClass()
+        //如果想实现链式调用或隐式迭代，就需要挂在原型上
+        //$.prototype=$.fn这两种写法一样
+        //下面两种写法一样
+        // $.fn.extend({taosu:function(){
+        //     console.log("taosu")
+        // }})
+
+        // $.extend($.fn,{
+        //     taosu:function(){
+        //         console.log("taosu")
+        //     }
+        // })
+
+        //应用：全选/全不选复选框
+        $.fn.extend({
+            allChecked(isChecked) {
+                // console.log("allchecked", isChecked)
+                console.log(this)
+                this.prop("checked", isChecked)
+                return this
+            }
+        })
+        // $("input[type=checkbox]").allChecked(true)
+        // $("input[type=checkbox]").allChecked(false)
+
+        $("input[type=checkbox]").allChecked(true).css({ width: 100, height: 100 })//此时会报错，要将自定义的allChecked方法放在jQuery自带的方法css后面才行，或者将自定义方法return出来
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <div>111</div>
+        <div>222</div>
+    </div>
+    <div id="box1">
+        <div>111</div>
+        <div>222</div>
+    </div>
+    <script>
+        //删除节点
+        //remove 删除自己
+        $("#box div").eq(0).remove()
+        //empty  清除内部
+        $("#box1").empty()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">111</div>
+    <script>
+        // this 谁调用我， this就指向谁 （es6 箭头函数除外）
+        //全局  this=>window
+        function test() {
+            console.log(this)
+        }
+        test()
+
+        //对象  this=>obj
+        var obj = {
+            name: "taosu",
+            test1: function () {
+                console.log(this)
+            }
+        }
+        // console.log(obj.test1)
+        obj.test1()
+
+        //定时器setTimeOut  this=>window
+        setTimeout(function () {
+            console.log(this)
+        }, 1000)
+
+        //事件绑定   this=>事件源
+        box.onclick = function () {
+            console.log(this)
+        }
+
+
+        function add() {
+            return this.a + this.b
+        }
+        window.a = 1
+        window.b = 2
+        console.log(obj100, this)
+        var obj100 = {
+            a: 101,
+            b: 102,
+            add: () => {
+                return this.a - this.b
+            }
+        }
+        console.log(this)
+        add(); //
+        obj100.add() // -1
+        obj100.add = add
+        obj100.add() // 
+
+    </script>
+</body>
+
+</html>
